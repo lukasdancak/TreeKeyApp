@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TreeService {
     List<TreeModel> getAll();
+    TreeModel add(String latinName, String slovakName, String leafsType);
 }

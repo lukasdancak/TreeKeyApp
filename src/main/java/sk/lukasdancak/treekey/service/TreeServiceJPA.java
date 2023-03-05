@@ -10,7 +10,7 @@ import java.util.List;
 public class TreeServiceJPA implements TreeService {
 
 
-    TreeRepository treeRepository;
+    private final TreeRepository treeRepository;
 
     public TreeServiceJPA(TreeRepository treeRepository) {
         this.treeRepository = treeRepository;
@@ -18,6 +18,11 @@ public class TreeServiceJPA implements TreeService {
 
     @Override
     public List<TreeModel> getAll(){
-        return (List<TreeModel>) treeRepository.findAll();
+        return (treeRepository.findAll().stream().toList());
+    }
+
+    @Override
+    public TreeModel add(String latinName, String slovakName, String leafsType) {
+        return treeRepository.save(new TreeModel(null, latinName, slovakName, leafsType));
     }
 }
