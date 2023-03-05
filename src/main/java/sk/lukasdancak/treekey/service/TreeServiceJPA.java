@@ -1,6 +1,7 @@
 package sk.lukasdancak.treekey.service;
 
 import org.springframework.stereotype.Service;
+import sk.lukasdancak.treekey.addrequest.TreeAddRecord;
 import sk.lukasdancak.treekey.entity.TreeModel;
 import sk.lukasdancak.treekey.repository.TreeRepository;
 
@@ -22,7 +23,8 @@ public class TreeServiceJPA implements TreeService {
     }
 
     @Override
-    public TreeModel add(String latinName, String slovakName, String leafsType) {
-        return treeRepository.save(new TreeModel(null, latinName, slovakName, leafsType));
+    public TreeModel add(TreeAddRecord treeAddRecord) {
+        return treeRepository.save(new TreeModel(null, treeAddRecord.latinName(), treeAddRecord.slovakName(),
+                treeAddRecord.leafsType()));
     }
 }
