@@ -1,9 +1,9 @@
 package sk.lukasdancak.treekey.service;
 
-import org.springframework.stereotype.Service;
-import sk.lukasdancak.treekey.repository.TreeRepository;
+import sk.lukasdancak.treekey.entity.TreeModel;
 
-@Service
-public class TreeService {
-    TreeRepository treeRepository;
+import java.util.List;
+
+public interface TreeService {
+    List<TreeModel> getAll();
 }
