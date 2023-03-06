@@ -8,10 +8,17 @@ public class TreeModel {
 
 
     @Id
+    @Column(name="tree_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id = null;
+
+
     private String latinName;
+
+
     private String slovakName;
+
+    @Column(name="leafs_type")
     private String leafsType;
 
     public TreeModel() {

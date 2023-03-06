@@ -1,6 +1,7 @@
 ### My
 env.properties
 data/passwords.mv.db
+/data
 
 
 ### From SPring
