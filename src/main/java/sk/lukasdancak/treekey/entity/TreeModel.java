@@ -5,16 +5,10 @@ import jakarta.persistence.*;
 @Entity
 @Table(name="trees")
 public class TreeModel {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id = null;
-
-
     private String latinName;
-
-
     private String slovakName;
     private String family; // slovak: čeľaď
     private String habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
@@ -45,27 +39,5 @@ public class TreeModel {
         this.imageFolder = imageFolder;
     }
 
-    public String getLatinName() {
-        return latinName;
-    }
 
-    public void setLatinName(String latinName) {
-        this.latinName = latinName;
-    }
-
-    public String getSlovakName() {
-        return slovakName;
-    }
-
-    public void setSlovakName(String slovakName) {
-        this.slovakName = slovakName;
-    }
-
-    public String getLeaf() {
-        return leaf;
-    }
-
-    public void setLeaf(String leaf) {
-        this.leaf = leaf;
-    }
 }
