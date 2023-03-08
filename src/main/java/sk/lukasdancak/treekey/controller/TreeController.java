@@ -1,13 +1,10 @@
 package sk.lukasdancak.treekey.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import sk.lukasdancak.treekey.addrequest.TreeAddRecord;
+import sk.lukasdancak.treekey.addrequest.TreeDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
 import sk.lukasdancak.treekey.service.TreeService;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -26,8 +23,8 @@ public class TreeController {
     }
 
     @PostMapping()
-    TreeModel post(@RequestBody TreeAddRecord treeAddRecord){
+    TreeModel post(@RequestBody TreeDTO treeDTO){
 
-       return treeService.add(treeAddRecord);
+       return treeService.add(treeDTO);
     }
 }

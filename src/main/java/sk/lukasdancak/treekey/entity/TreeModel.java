@@ -8,7 +8,6 @@ public class TreeModel {
 
 
     @Id
-    @Column(name="tree_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id = null;
 
@@ -17,19 +16,33 @@ public class TreeModel {
 
 
     private String slovakName;
-
-    @Column(name="leafs_type")
-    private String leafsType;
+    private String family; // slovak: čeľaď
+    private String habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
+    private String rhytidome; // ross, slovak: borka, kora
+    private String leaf; // leaf  type
+    private String flower; // flower type
+    private String fruit; // fruit type
+    private String description; // info about tree
+    private String imageFolder; // link to folder with images
 
     public TreeModel() {
-        this(null,"","","");
+        this(null,"","","","","","","",
+                "","","");
     }
 
-    public TreeModel(Long id, String latinName, String slovakName, String leafsType) {
+    public TreeModel(Long id, String latinName, String slovakName, String family, String habitus, String rhytidome,
+                     String leaf, String flower, String fruit, String description, String imageFolder) {
         this.id = id;
         this.latinName = latinName;
         this.slovakName = slovakName;
-        this.leafsType = leafsType;
+        this.family = family;
+        this.habitus = habitus;
+        this.rhytidome = rhytidome;
+        this.leaf = leaf;
+        this.flower = flower;
+        this.fruit = fruit;
+        this.description = description;
+        this.imageFolder = imageFolder;
     }
 
     public String getLatinName() {
@@ -48,11 +61,11 @@ public class TreeModel {
         this.slovakName = slovakName;
     }
 
-    public String getLeafsType() {
-        return leafsType;
+    public String getLeaf() {
+        return leaf;
     }
 
-    public void setLeafsType(String leafsType) {
-        this.leafsType = leafsType;
+    public void setLeaf(String leaf) {
+        this.leaf = leaf;
     }
 }
