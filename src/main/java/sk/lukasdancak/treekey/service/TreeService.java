@@ -18,7 +18,7 @@ public class TreeService {
     }
 
 
-    public List<TreeModel> getAll(){
+    public List<TreeModel> getAll() {
         return (treeRepository.findAll().stream().toList());
     }
 
