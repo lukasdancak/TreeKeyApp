@@ -12,9 +12,9 @@ public class TreeModel {
     private String latinName;
     @Column(name="slovak_name")
     private String slovakName;
-//    @ManyToOne
-//    @JoinColumn(name="family_id")
-//    private FamilyModel family; // slovak: čeľaď
+    @ManyToOne
+    @JoinColumn(name="family_id")
+    private FamilyModel family; // slovak: čeľaď
 
 //    private String habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
 //    private String rhytidome; // ross, slovak: borka, kora

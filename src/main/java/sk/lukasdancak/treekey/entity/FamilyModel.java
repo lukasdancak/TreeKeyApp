@@ -22,8 +22,8 @@ public class FamilyModel {
         this.name = name;
     }
 
-//    @OneToMany(mappedBy = "family")
-//    private Collection<TreeModel> trees;
+    @OneToMany(mappedBy = "family")
+    private Collection<TreeModel> trees;
 
 //    public Collection<TreeModel> getTrees() {
 //        return trees;
