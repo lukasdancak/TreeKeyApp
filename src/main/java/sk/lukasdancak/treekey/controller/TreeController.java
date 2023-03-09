@@ -1,7 +1,7 @@
 package sk.lukasdancak.treekey.controller;
 
 import org.springframework.web.bind.annotation.*;
-import sk.lukasdancak.treekey.addrequest.TreeDTO;
+import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
 import sk.lukasdancak.treekey.service.TreeService;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/trees")
 public class TreeController {
 
-    TreeService treeService;
+    private final TreeService treeService;
 
     public TreeController(TreeService treeService) {
         this.treeService = treeService;
