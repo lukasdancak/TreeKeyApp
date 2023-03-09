@@ -24,7 +24,7 @@ public class TreeService {
 
 
     public TreeModel add(TreeDTO treeDTO) {
-        return treeRepository.save(new TreeModel(null, treeDTO.latinName(), treeDTO.slovakName(), treeDTO.family()/*,
+        return treeRepository.save(new TreeModel(null, treeDTO.latinName(), treeDTO.slovakName()/*, treeDTO.family()/*,
                 treeDTO.habitus(), treeDTO.rhytidome(), treeDTO.leaf(), treeDTO.flower(), treeDTO.fruit(),
                 treeDTO.description(), treeDTO.imageFolder()*/));
     }
