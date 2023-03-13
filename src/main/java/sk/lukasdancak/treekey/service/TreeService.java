@@ -1,6 +1,8 @@
 package sk.lukasdancak.treekey.service;
 
 import org.springframework.stereotype.Service;
+import sk.lukasdancak.treekey.customexception.BadRequestCustom;
+import sk.lukasdancak.treekey.customexception.DbComunicationProblemCustom;
 import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.entity.FamilyModel;
 import sk.lukasdancak.treekey.entity.TreeModel;
@@ -45,7 +47,8 @@ public class TreeService {
             try {
                 family = familyService.getFamilyByName(treeDTO.familyName());
             } catch (Exception e) {
-                throw new RuntimeException("Problem s databazou: treeService.add()>familyService.getFamilyByName()");
+                throw new DbComunicationProblemCustom(
+                        "Problem s databazou: treeService.add()>familyService.getFamilyByName(...)", e);
             }
             if (family == null) {
                 errors.add("Posted familyname is not allowed/ not in database");
@@ -54,9 +57,8 @@ public class TreeService {
         }
 
         if (!errors.isEmpty()) {
-            throw new RuntimeException("Najdeny problem pri overeni treeDTO objektu add() metode: " + errors.toString());
+            throw new BadRequestCustom("Najdeny problem pri overeni treeDTO objektu v metode .add(): " + errors.toString());
         }
-
 
         TreeModel tree = new TreeModel();
         tree.setLatinName(treeDTO.latinName());
@@ -65,7 +67,7 @@ public class TreeService {
         try {
             return treeRepository.save(tree);
         } catch (Exception e) {
-            throw new RuntimeException("Problem s databazou: treeService.add()");
+            throw new DbComunicationProblemCustom("Problem s databazou: treeService.add()>treeRepository.save(tree)", e);
         }
     }
 }

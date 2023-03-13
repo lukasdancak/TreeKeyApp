@@ -7,7 +7,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "families")
-public class FamilyModel implements Serializable {
+public class FamilyModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
