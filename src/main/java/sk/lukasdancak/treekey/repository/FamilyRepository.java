@@ -6,6 +6,8 @@ import sk.lukasdancak.treekey.entity.FamilyModel;
 import sk.lukasdancak.treekey.entity.TreeModel;
 
 @Repository
-public interface FamilyRepository extends JpaRepository<FamilyModel,Long> {
+public interface FamilyRepository extends JpaRepository<FamilyModel, Long> {
+
+    FamilyModel findFamilyModelByNameIs(String familyName);
 
 }

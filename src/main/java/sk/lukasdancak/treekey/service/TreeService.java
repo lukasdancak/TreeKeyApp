@@ -12,9 +12,11 @@ public class TreeService {
 
 
     private final TreeRepository treeRepository;
+    private final FamilyService familyService;
 
-    public TreeService(TreeRepository treeRepository) {
+    public TreeService(TreeRepository treeRepository, FamilyService familyService) {
         this.treeRepository = treeRepository;
+        this.familyService = familyService;
     }
 
 
@@ -24,8 +26,12 @@ public class TreeService {
 
 
     public TreeModel add(TreeDTO treeDTO) {
-        return treeRepository.save(new TreeModel(null, treeDTO.latinName(), treeDTO.slovakName()/*, treeDTO.family()/*,
-                treeDTO.habitus(), treeDTO.rhytidome(), treeDTO.leaf(), treeDTO.flower(), treeDTO.fruit(),
-                treeDTO.description(), treeDTO.imageFolder()*/));
+        TreeModel tree = new TreeModel();
+        tree.setLatinName(treeDTO.latinName());
+        tree.setSlovakName(treeDTO.slovakName());
+        tree.setFamily(familyService.getFamilyByName(treeDTO.familyName()));
+
+
+        return treeRepository.save(tree);
     }
 }

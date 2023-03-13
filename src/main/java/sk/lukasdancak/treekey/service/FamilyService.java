@@ -17,10 +17,9 @@ public class FamilyService {
     }
 
 
-    public List<FamilyModel> getAll(){
-        return (familyRepository.findAll().stream().toList());
+    public FamilyModel getFamilyByName(String familyName) {
+        return familyRepository.findFamilyModelByNameIs(familyName);
     }
-
 
 
 }
