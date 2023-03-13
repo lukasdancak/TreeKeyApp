@@ -1,5 +1,7 @@
 package sk.lukasdancak.treekey.restcontroller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
@@ -19,26 +21,25 @@ public class TreeRestController {
     }
 
     @GetMapping()
-    List<TreeDTO> get() {
+    ResponseEntity<?> get() {
         List<TreeModel> treeModelList = treeService.getAll();
         List<TreeDTO> treeDTOList = new ArrayList<>();
         for (TreeModel t : treeModelList
         ) {
-            TreeDTO dto = new TreeDTO(t.getLatinName(), t.getSlovakName(), t.getFamily().getName());
-            treeDTOList.add(dto);
-
-
+            treeDTOList.add(new TreeDTO(t));
         }
 
-        return treeDTOList;
+        return new ResponseEntity<>(treeDTOList, HttpStatus.OK);
 
     }
 
     @PostMapping()
-    TreeDTO post(@RequestBody TreeDTO treeDTO) {
-
-        TreeModel t = treeService.add(treeDTO);
-        TreeDTO dto = new TreeDTO(t.getLatinName(), t.getSlovakName(), t.getFamily().getName());
-        return dto;
+    ResponseEntity<?> post(@RequestBody TreeDTO treeDTO) {
+        try {
+            return new ResponseEntity<>(new TreeDTO(treeService.add(treeDTO)), HttpStatus.OK);
+        } catch (Exception e) {
+            //log of e
+            return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
+        }
     }
 }
