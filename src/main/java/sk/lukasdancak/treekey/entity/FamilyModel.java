@@ -9,7 +9,7 @@ import java.util.Collection;
 @Table(name = "families")
 public class FamilyModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name; //name of tree family - meno celade
     private String description; // description of family - popis celade

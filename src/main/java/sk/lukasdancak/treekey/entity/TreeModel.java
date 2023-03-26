@@ -8,7 +8,7 @@ import java.io.Serializable;
 @Table(name = "trees")
 public class TreeModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id = null;
     @Column(name = "latin_name")
     private String latinName;

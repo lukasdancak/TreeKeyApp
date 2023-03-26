@@ -40,18 +40,19 @@ public class TreeService {
         if (treeDTO.slovakName() == null || treeDTO.slovakName() == "") {
             errors.add("Empty slovakName of treeDTO");
         }
-        // check if in database exists record with name familyName
+        //check variable familyName for null or empty string
         if (treeDTO.familyName() == null || treeDTO.familyName() == "") {
             errors.add("Empty familyName of treeDTO");
         } else {
             try {
+                // check if in database in table families exists record with name familyName
                 family = familyService.getFamilyByName(treeDTO.familyName());
             } catch (Exception e) {
                 throw new DbComunicationProblemCustom(
                         "Problem s databazou: treeService.add()>familyService.getFamilyByName(...)", e);
             }
             if (family == null) {
-                errors.add("Posted familyname is not allowed/ not in database");
+                errors.add("Posted familyname is not allowed becasue it is not in database in table families");
             }
 
         }
