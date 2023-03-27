@@ -38,14 +38,15 @@
 
 
     <dependencies>
-        <!--spring-boot-starter-validation dependency added because its solution of this problem:
+        <!--spring-boot-starter-validation dependency added because it is solution of this problem, which raised after
+        adding pringdoc-openapi-starter-webmvc-ui dependency:
         https://stackoverflow.com/questions/36329001/unable-to-create-a-configuration-because-no-bean-validation-provider-could-be-f -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
 
-        <!--open api dependency. included swagger-->
+        <!--open api dependency, swagger included-->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
