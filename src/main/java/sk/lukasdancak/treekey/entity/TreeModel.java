@@ -1,8 +1,8 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
+import sk.lukasdancak.treekey.enums.Habitus;
 
-import java.io.Serializable;
 
 @Entity
 @Table(name = "trees")
@@ -17,14 +17,13 @@ public class TreeModel {
     @ManyToOne
     @JoinColumn(name = "family_id")
     private FamilyModel family; // slovak: čeľaď
-
-//    private String habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
-//    private String rhytidome; // ross, slovak: borka, kora
+    @Enumerated(EnumType.STRING)
+    private Habitus habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
+    //    private String rhytidome; // ross, slovak: borka, kora
 //    private String leaf; // leaf  type
 //    private String flower; // flower type
 //    private String fruit; // fruit type
-//    private String description; // info about tree
-//    private String imageFolder; // link to folder with images
+    private String description; // info about tree
 
 
     public TreeModel() {
