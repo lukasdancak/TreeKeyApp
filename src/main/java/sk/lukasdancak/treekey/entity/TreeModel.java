@@ -17,10 +17,13 @@ public class TreeModel {
     @ManyToOne
     @JoinColumn(name = "family_id")
     private FamilyModel family; // slovak: čeľaď
+
+    //JPAs default mapping/converting
     @Enumerated(EnumType.STRING)
     private Habitus habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
-    //    private String rhytidome; // ross, slovak: borka, kora
-//    private String leaf; // leaf  type
+
+    private Rhytidome rhytidome; // ross, slovak: borka, kora
+    //    private String leaf; // leaf  type
 //    private String flower; // flower type
 //    private String fruit; // fruit type
     private String description; // info about tree
