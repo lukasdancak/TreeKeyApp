@@ -1,7 +1,9 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
+import sk.lukasdancak.treekey.converter.RhytidomeJpaConverter;
 import sk.lukasdancak.treekey.enums.Habitus;
+import sk.lukasdancak.treekey.enums.Rhytidome;
 
 
 @Entity
@@ -18,11 +20,15 @@ public class TreeModel {
     @JoinColumn(name = "family_id")
     private FamilyModel family; // slovak: čeľaď
 
-    //JPAs default mapping/converting
+    //JPAs default mapping/converting of enum
     @Enumerated(EnumType.STRING)
     private Habitus habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
 
+    //mapping/converting of enum by JPAs converter
+    @Convert(converter = RhytidomeJpaConverter.class)
     private Rhytidome rhytidome; // ross, slovak: borka, kora
+
+
     //    private String leaf; // leaf  type
 //    private String flower; // flower type
 //    private String fruit; // fruit type
