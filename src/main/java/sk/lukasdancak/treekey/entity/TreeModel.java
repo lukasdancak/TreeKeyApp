@@ -1,37 +1,39 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
-import sk.lukasdancak.treekey.converter.RhytidomeJpaConverter;
-import sk.lukasdancak.treekey.enums.Habitus;
-import sk.lukasdancak.treekey.enums.Rhytidome;
 
 
 @Entity
 @Table(name = "trees")
 public class TreeModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id = null;
-    @Column(name = "latin_name")
+
+    @Column(name = "latin_name", nullable = false)
     private String latinName;
-    @Column(name = "slovak_name")
+
+    @Column(name = "slovak_name", nullable = false)
     private String slovakName;
+
     @ManyToOne
-    @JoinColumn(name = "family_id")
+    @JoinColumn(name = "family_id", nullable = false)
     private FamilyModel family; // slovak: čeľaď
 
-    //JPAs default mapping/converting of enum
-    @Enumerated(EnumType.STRING)
-    private Habitus habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
+    @ManyToOne
+    @JoinColumn(name = "habitus_id", nullable = false)
+    private HabitusModel habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
 
-    //mapping/converting of enum by JPAs converter
-    @Convert(converter = RhytidomeJpaConverter.class)
-    private Rhytidome rhytidome; // ross, slovak: borka, kora
+    @ManyToOne
+    @JoinColumn(name = "rhytidome_id", nullable = false)
+    private RhytidomeModel rhytidome; // ross, slovak: borka, kora
 
 
     //    private String leaf; // leaf  type
-//    private String flower; // flower type
-//    private String fruit; // fruit type
+    //    private String flower; // flower type
+    //    private String fruit; // fruit type
+    @Column(name = "descrition", nullable = false)
     private String description; // info about tree
 
 
