@@ -1,21 +1,14 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
+import sk.lukasdancak.treekey.noentity.TreeProperty;
 
 import java.util.Collection;
 
 @Entity
 @Table(name = "rhytidomes")
-public class RhytidomeModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
-    @Column(nullable = false)
-    private String name; //name of rhytidome
-
-    private String description; // description of rhytidome
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class RhytidomeModel extends TreeProperty {
 
     @OneToMany(mappedBy = "rhytidome")
     private Collection<TreeModel> trees;

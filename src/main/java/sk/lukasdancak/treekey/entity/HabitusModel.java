@@ -1,28 +1,20 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
+import sk.lukasdancak.treekey.noentity.TreeProperty;
 
 import java.util.Collection;
 
 @Entity
 @Table(name = "habituses")
-public class HabitusModel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
-    @Column(nullable = false)
-    private String name; //name of habitus
-
-    private String description; // description of habitus
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class HabitusModel extends TreeProperty {
 
     @OneToMany(mappedBy = "habitus")
     private Collection<TreeModel> trees;
 
     public HabitusModel() {
     }
-
 
     public Collection<TreeModel> getTrees() {
         return trees;
