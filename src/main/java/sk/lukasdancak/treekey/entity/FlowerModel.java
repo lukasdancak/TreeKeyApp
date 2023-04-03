@@ -5,22 +5,22 @@ import jakarta.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "rhytidomes")
-public class RhytidomeModel {
+@Table(name = "flowers")
+public class FlowerModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @Column(nullable = false)
-    private String name; //name of rhytidome
+    private String name; //name of flower
 
-    private String description; // description of rhytidome
+    private String description; // description of flower
 
-    @OneToMany(mappedBy = "rhytidome")
+    @OneToMany(mappedBy = "flower")
     private Collection<TreeModel> trees;
 
-    public RhytidomeModel() {
+    public FlowerModel() {
     }
 
     public Collection<TreeModel> getTrees() {

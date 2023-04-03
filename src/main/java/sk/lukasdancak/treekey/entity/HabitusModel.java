@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "habitus")
+@Table(name = "habituses")
 public class HabitusModel {
 
     @Id
