@@ -13,6 +13,19 @@ public class LeafModel extends TreeProperty {
     @OneToMany(mappedBy = "leaf")
     private Collection<TreeModel> trees;
 
+    //zilnatina
+
+    Zilnatina zilnatina;
+
+    //tvar listovej cepele
+
+    //okraj listovej cepele
+
+    //tvar (zubatost) okraja listovej čepele
+
+    //tvar lsitovej cepele
+
+    //
     public LeafModel() {
     }
 
