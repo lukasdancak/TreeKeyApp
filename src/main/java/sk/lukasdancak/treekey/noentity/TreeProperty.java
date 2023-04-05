@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @MappedSuperclass
 public class TreeProperty {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -14,10 +14,10 @@ public class TreeProperty {
 
     private String description; // description of flower
 
+
     public Long getId() {
         return id;
     }
-
 
     public String getName() {
         return name;

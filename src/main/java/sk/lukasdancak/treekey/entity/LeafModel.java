@@ -15,7 +15,7 @@ public class LeafModel extends TreeProperty {
 
     //zilnatina
 
-    Zilnatina zilnatina;
+    //Zilnatina zilnatina;
 
     //tvar listovej cepele
 
