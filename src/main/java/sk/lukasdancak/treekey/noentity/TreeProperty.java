@@ -5,19 +5,19 @@ import jakarta.persistence.*;
 @MappedSuperclass
 public class TreeProperty {
 
+    //    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    Long id;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-
     @Column(nullable = false)
     private String name; //name of flower
 
     private String description; // description of flower
 
 
-    public Long getId() {
-        return id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
 
     public String getName() {
         return name;
