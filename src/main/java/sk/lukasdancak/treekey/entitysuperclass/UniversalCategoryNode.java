@@ -6,7 +6,7 @@ import java.util.Collection;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class CategoryNodeUni {
+public abstract class UniversalCategoryNode {
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     //Long id;
@@ -21,10 +21,10 @@ public abstract class CategoryNodeUni {
     // if null then THIS is root node
     @ManyToOne
     @JoinColumn(name = "parent_name")
-    CategoryNodeUni parentNode;
+    UniversalCategoryNode parentNode;
 
     //if empty then THIS is last child node
     @OneToMany(mappedBy = "parentNode")
-    Collection<CategoryNodeUni> childrenNodes;
+    Collection<UniversalCategoryNode> childrenNodes;
 
 }

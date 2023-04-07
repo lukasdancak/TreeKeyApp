@@ -1,7 +1,8 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
-import sk.lukasdancak.treekey.entity.leafproperties.ShapeOfLeafBlade;
+import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapeModel;
+import sk.lukasdancak.treekey.entity.leafproperties.LeafVeinsTypeModel;
 
 
 @Entity
@@ -18,25 +19,37 @@ public class TreeModel {
     @Column(name = "slovak_name", nullable = false)
     private String slovakName;
 
+    //description of tree
+    @Column(name = "descrition", nullable = false)
+    private String description;
+
+    // slovak: čeľaď
     @ManyToOne
     @JoinColumn(name = "family_id", nullable = false)
-    private FamilyModel family; // slovak: čeľaď
+    private FamilyModel family;
 
+    // bush, tree, etc.; slovak: ker, strom  atď
     @ManyToOne
     @JoinColumn(name = "habitus_id", nullable = false)
-    private HabitusModel habitus; // bush, creeper, tree, etc.; slovak: ker, strom, liana, atď
+    private HabitusModel habitus;
 
+    // ross, slovak: borka, kora
     @ManyToOne
     @JoinColumn(name = "rhytidome_id", nullable = false)
-    private RhytidomeModel rhytidome; // ross, slovak: borka, kora
+    private RhytidomeModel rhytidome;
 
-
-    //tvar litovej cepele
+    //shape of leafs blade
     @ManyToOne
-    @JoinColumn(name = "shape_of_leaf_blade_name")
-    ShapeOfLeafBlade shapeOfLeafBlade;
+    @JoinColumn(name = "leaf_blade_shape_name")
+    LeafBladeShapeModel leafBladeShape;
 
-// to finish this later
+    //type of veins
+    @ManyToOne
+    @JoinColumn(name = "leaf_veins_type_name")
+    LeafVeinsTypeModel leafVeinsType;
+
+
+    // to finish this later
 //    @ManyToOne
 //    @JoinColumn(name = "flower_id", nullable = false)
 //    private FlowerModel flower; // flower
@@ -45,9 +58,6 @@ public class TreeModel {
 //    @ManyToOne
 //    @JoinColumn(name = "fruit_id", nullable = false)
 //    private FruitModel fruit; // fruit
-
-    @Column(name = "descrition", nullable = false)
-    private String description; // info about tree
 
 
     public TreeModel() {
@@ -120,5 +130,21 @@ public class TreeModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LeafVeinsTypeModel getLeafVeinsType() {
+        return leafVeinsType;
+    }
+
+    public void setLeafVeinsType(LeafVeinsTypeModel leafVeinsType) {
+        this.leafVeinsType = leafVeinsType;
+    }
+
+    public LeafBladeShapeModel getLeafBladeShape() {
+        return leafBladeShape;
+    }
+
+    public void setLeafBladeShape(LeafBladeShapeModel leafBladeShape) {
+        this.leafBladeShape = leafBladeShape;
     }
 }

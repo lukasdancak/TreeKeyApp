@@ -1,16 +1,16 @@
 package sk.lukasdancak.treekey.entity.leafproperties;
 
 import jakarta.persistence.*;
-import sk.lukasdancak.treekey.entitysuperclass.CategoryNodeUni;
+import sk.lukasdancak.treekey.entitysuperclass.UniversalCategoryNode;
 
 import java.util.Collection;
 
 @Entity
-@Table(name = "category_nodes_shape_of_leaf_blade")
-public class CategoryNodeShapeOfLeafBlade extends CategoryNodeUni {
+@Table(name = "leaf_blade_shapes_category_nodes")
+public class LeafBladeShapesCategoryNode extends UniversalCategoryNode {
 
     // if THIS is the last child node, then here are objects linked to THIS category node
     @OneToMany(mappedBy = "categoryNode")
-    private Collection<ShapeOfLeafBlade> categoryNodeMembers;
+    private Collection<LeafBladeShapeModel> categoryNodeMembers;
 
 }

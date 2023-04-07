@@ -6,7 +6,7 @@ VALUES ('Pinecae', 'Acidaedsadasd jh ug gzguz zu.'),
 INSERT INTO habituses(name, description)
 VALUES ('strom', 'kmen+koruna'),
        ('ker', 'rozkonareny od bazy'),
-       ('kríček', 'drobný ker'),
+       ('kricek', 'drobny ker'),
        ('poloker', 'nadbazalna cas stonky je bylinnej konzistencie');
 
 INSERT INTO rhytidomes(name, description)
@@ -19,10 +19,26 @@ VALUES ('smrekovy', 'malé jemné šupiny'),
 
 
 
-INSERT INTO category_nodes_shape_of_leaf_blade(level, name, parent_name)
-VALUES (1, 'zlozeny list', null),
-       (1, 'jednoduchy list', null),
-       (2, 'celistvy', 'jednoduchy list'),
-       (2, 'deleny', 'jednoduchy list'),
-       (2, 'perovito zlozene', 'zlozeny list'),
-       (2, 'dlanovito zlozene', 'zlozeny list');
+INSERT INTO leaf_blade_shapes_category_nodes(level, name, parent_name)
+VALUES (1, 'zlozene', null),
+       (1, 'jednoduche', null),
+       (2, 'celistve', 'jednoduche'),
+       (2, 'delene', 'jednoduche'),
+       (2, 'perovito-zlozene', 'zlozene'),
+       (2, 'dlanovito-zlozene', 'zlozene'),
+       (3, 'lalocnate', 'delene');
+
+
+INSERT INTO leaf_blade_shapes(name, description, category_node_name)
+VALUES ('ciarkovity (ihlicovity)', 'bla bla bla', 'celistve'),
+       ('elipsovity', 'bla bla bla', 'celistve'),
+       ('perovito-lalocnaty', 'bla uhuubla bla', 'lalocnate'),
+       ('trojpocetny', 'buhila uhuubla bla', 'dlanovito-zlozene');
+
+
+
+INSERT INTO leaf_veins_types_category_nodes(level, name, parent_name)
+VALUES (1, 'nahosemennych – otvorena', null),
+       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
+
+
