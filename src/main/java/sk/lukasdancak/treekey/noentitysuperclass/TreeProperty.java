@@ -1,9 +1,9 @@
-package sk.lukasdancak.treekey.noentity;
+package sk.lukasdancak.treekey.noentitysuperclass;
 
 import jakarta.persistence.*;
 
 @MappedSuperclass
-public class TreeProperty {
+public abstract class TreeProperty {
 
     //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

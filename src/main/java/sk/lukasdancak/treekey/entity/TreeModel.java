@@ -1,6 +1,7 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
+import sk.lukasdancak.treekey.entity.leafproperties.ShapeOfLeafBlade;
 
 
 @Entity
@@ -29,9 +30,11 @@ public class TreeModel {
     @JoinColumn(name = "rhytidome_id", nullable = false)
     private RhytidomeModel rhytidome; // ross, slovak: borka, kora
 
+
+    //tvar litovej cepele
     @ManyToOne
-    @JoinColumn(name = "leaf_id", nullable = false)
-    private LeafModel leaf; // leaf
+    @JoinColumn(name = "shape_of_leaf_blade_name")
+    ShapeOfLeafBlade shapeOfLeafBlade;
 
 // to finish this later
 //    @ManyToOne
@@ -94,13 +97,6 @@ public class TreeModel {
         this.rhytidome = rhytidome;
     }
 
-    public LeafModel getLeaf() {
-        return leaf;
-    }
-
-    public void setLeaf(LeafModel leaf) {
-        this.leaf = leaf;
-    }
 
 //    public FlowerModel getFlower() {
 //        return flower;
