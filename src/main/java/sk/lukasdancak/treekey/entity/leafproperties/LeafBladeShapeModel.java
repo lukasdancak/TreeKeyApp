@@ -2,7 +2,7 @@ package sk.lukasdancak.treekey.entity.leafproperties;
 
 import jakarta.persistence.*;
 import sk.lukasdancak.treekey.entity.TreeModel;
-import sk.lukasdancak.treekey.noentitysuperclass.TreeProperty;
+import sk.lukasdancak.treekey.superclassnoentity.TreeProperty;
 
 import java.util.Collection;
 

@@ -1,7 +1,7 @@
 package sk.lukasdancak.treekey.entity.leafproperties;
 
 import jakarta.persistence.*;
-import sk.lukasdancak.treekey.entitysuperclass.UniversalCategoryNode;
+import sk.lukasdancak.treekey.superclassentity.UniversalCategoryNode;
 
 import java.util.Collection;
 

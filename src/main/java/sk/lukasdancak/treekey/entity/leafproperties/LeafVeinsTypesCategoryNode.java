@@ -3,7 +3,7 @@ package sk.lukasdancak.treekey.entity.leafproperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import sk.lukasdancak.treekey.entitysuperclass.UniversalCategoryNode;
+import sk.lukasdancak.treekey.superclassentity.UniversalCategoryNode;
 
 import java.util.Collection;
 

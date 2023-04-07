@@ -1,4 +1,4 @@
-package sk.lukasdancak.treekey.noentitysuperclass;
+package sk.lukasdancak.treekey.superclassnoentity;
 
 import jakarta.persistence.*;
 
