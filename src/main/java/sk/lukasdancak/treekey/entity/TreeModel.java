@@ -33,13 +33,15 @@ public class TreeModel {
     @JoinColumn(name = "leaf_id", nullable = false)
     private LeafModel leaf; // leaf
 
-    @ManyToOne
-    @JoinColumn(name = "flower_id", nullable = false)
-    private FlowerModel flower; // flower
+// to finish this later
+//    @ManyToOne
+//    @JoinColumn(name = "flower_id", nullable = false)
+//    private FlowerModel flower; // flower
 
-    @ManyToOne
-    @JoinColumn(name = "fruit_id", nullable = false)
-    private FruitModel fruit; // fruit
+// to finish this later
+//    @ManyToOne
+//    @JoinColumn(name = "fruit_id", nullable = false)
+//    private FruitModel fruit; // fruit
 
     @Column(name = "descrition", nullable = false)
     private String description; // info about tree
@@ -100,21 +102,21 @@ public class TreeModel {
         this.leaf = leaf;
     }
 
-    public FlowerModel getFlower() {
-        return flower;
-    }
-
-    public void setFlower(FlowerModel flower) {
-        this.flower = flower;
-    }
-
-    public FruitModel getFruit() {
-        return fruit;
-    }
-
-    public void setFruit(FruitModel fruit) {
-        this.fruit = fruit;
-    }
+//    public FlowerModel getFlower() {
+//        return flower;
+//    }
+//
+//    public void setFlower(FlowerModel flower) {
+//        this.flower = flower;
+//    }
+//
+//    public FruitModel getFruit() {
+//        return fruit;
+//    }
+//
+//    public void setFruit(FruitModel fruit) {
+//        this.fruit = fruit;
+//    }
 
     public String getDescription() {
         return description;
