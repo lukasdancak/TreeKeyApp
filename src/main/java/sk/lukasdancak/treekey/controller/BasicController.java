@@ -10,4 +10,9 @@ public class BasicController {
     public String mainPage() {
         return "home";
     }
+
+    @RequestMapping("/searchnojs")
+    public String searchNoJSPage() {
+        return "searchnojs";
+    }
 }
