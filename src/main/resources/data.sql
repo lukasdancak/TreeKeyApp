@@ -19,26 +19,23 @@ VALUES ('smrekovy', 'malé jemné šupiny'),
 
 
 
-INSERT INTO leaf_blade_shapes_category_nodes(level, name, parent_name)
+INSERT INTO leaf_blade_shapes_nodes(level, name, parent_name)
 VALUES (1, 'zlozene', null),
        (1, 'jednoduche', null),
        (2, 'celistve', 'jednoduche'),
        (2, 'delene', 'jednoduche'),
        (2, 'perovito-zlozene', 'zlozene'),
        (2, 'dlanovito-zlozene', 'zlozene'),
-       (3, 'lalocnate', 'delene');
-
-
-INSERT INTO leaf_blade_shapes(name, description, category_node_name)
-VALUES ('ciarkovity (ihlicovity)', 'bla bla bla', 'celistve'),
-       ('elipsovity', 'bla bla bla', 'celistve'),
-       ('perovito-lalocnaty', 'bla uhuubla bla', 'lalocnate'),
-       ('trojpocetny', 'buhila uhuubla bla', 'dlanovito-zlozene');
+       (3, 'lalocnate', 'delene'),
+       (3, 'ciarkovity (ihlicovity)', 'celistve'),
+       (3, 'elipsovity', 'celistve'),
+       (4, 'perovito-lalocnaty', 'lalocnate'),
+       (3, 'trojpocetny', 'dlanovito-zlozene');
 
 
 
-INSERT INTO leaf_veins_types_category_nodes(level, name, parent_name)
-VALUES (1, 'nahosemennych – otvorena', null),
-       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
+-- INSERT INTO leaf_veins_types_category_nodes(level, name, parent_name)
+-- VALUES (1, 'nahosemennych – otvorena', null),
+--        (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
 
 

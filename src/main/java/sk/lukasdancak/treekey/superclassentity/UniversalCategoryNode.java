@@ -1,19 +1,20 @@
 package sk.lukasdancak.treekey.superclassentity;
 
 import jakarta.persistence.*;
+import sk.lukasdancak.treekey.superclassnoentity.TreeProperty;
 
 import java.util.Collection;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class UniversalCategoryNode {
+public abstract class UniversalCategoryNode extends TreeProperty {
     //@Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     //Long id;
 
     // name of this category node
-    @Id
-    String name;
+//    @Id
+//    String name;
 
     // level of this category node
     int level;

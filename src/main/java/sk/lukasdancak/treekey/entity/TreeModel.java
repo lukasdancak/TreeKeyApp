@@ -1,8 +1,7 @@
 package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
-import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapeModel;
-import sk.lukasdancak.treekey.entity.leafproperties.LeafVeinsTypeModel;
+import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
 
 
 @Entity
@@ -40,13 +39,13 @@ public class TreeModel {
 
     //shape of leafs blade
     @ManyToOne
-    @JoinColumn(name = "leaf_blade_shape_name")
-    LeafBladeShapeModel leafBladeShape;
+    @JoinColumn(name = "leaf_blade_shapes_node_name")
+    LeafBladeShapesNode leafBladeShapesNode;
 
     //type of veins
-    @ManyToOne
-    @JoinColumn(name = "leaf_veins_type_name")
-    LeafVeinsTypeModel leafVeinsType;
+//    @ManyToOne
+//    @JoinColumn(name = "leaf_veins_type_name")
+//    LeafVeinsTypeModel leafVeinsType;
 
 
     // to finish this later
@@ -132,19 +131,5 @@ public class TreeModel {
         this.description = description;
     }
 
-    public LeafVeinsTypeModel getLeafVeinsType() {
-        return leafVeinsType;
-    }
 
-    public void setLeafVeinsType(LeafVeinsTypeModel leafVeinsType) {
-        this.leafVeinsType = leafVeinsType;
-    }
-
-    public LeafBladeShapeModel getLeafBladeShape() {
-        return leafBladeShape;
-    }
-
-    public void setLeafBladeShape(LeafBladeShapeModel leafBladeShape) {
-        this.leafBladeShape = leafBladeShape;
-    }
 }
