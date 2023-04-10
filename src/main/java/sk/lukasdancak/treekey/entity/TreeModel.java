@@ -2,6 +2,7 @@ package sk.lukasdancak.treekey.entity;
 
 import jakarta.persistence.*;
 import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
+import sk.lukasdancak.treekey.entity.leafproperties.LeafVeinsTypesNode;
 
 
 @Entity
@@ -43,9 +44,9 @@ public class TreeModel {
     LeafBladeShapesNode leafBladeShapesNode;
 
     //type of veins
-//    @ManyToOne
-//    @JoinColumn(name = "leaf_veins_type_name")
-//    LeafVeinsTypeModel leafVeinsType;
+    @ManyToOne
+    @JoinColumn(name = "leaf_veins_type_name")
+    LeafVeinsTypesNode leafVeinsTypesNode;
 
 
     // to finish this later

@@ -34,8 +34,8 @@ VALUES (1, 'zlozene', null),
 
 
 
--- INSERT INTO leaf_veins_types_category_nodes(level, name, parent_name)
--- VALUES (1, 'nahosemennych – otvorena', null),
---        (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
+INSERT INTO leaf_veins_types_nodes(level, name, parent_name)
+VALUES (1, 'nahosemennych – otvorena', null),
+       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
 
 
