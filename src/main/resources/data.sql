@@ -1,6 +1,8 @@
 -- basic data
+
+
 INSERT INTO families(name, description)
-VALUES ('Pinecae', 'Acidaedsadasd jh ug gzguz zu.'),
+VALUES ('Pinaceae', 'Acidaedsadasd jh ug gzguz zu.'),
        ('Aceraceae', 'Ddsadasd hhhuzg zgzguz.');
 
 INSERT INTO habituses(name, description)
@@ -37,5 +39,10 @@ VALUES (1, 'zlozene', null),
 INSERT INTO leaf_veins_types_nodes(level, name, parent_name)
 VALUES (1, 'nahosemennych – otvorena', null),
        (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
+
+INSERT INTO trees(id, description, latin_name, slovak_name, family_name, habitus_name, leaf_blade_shapes_node_name,
+                  leaf_veins_type_name, rhytidome_name)
+VALUES (1, 'popis popis 2', 'Picea abies', 'smrek obyčajný', 'Pinaceae', 'strom', 'ciarkovity (ihlicovity)',
+        'nahosemennych – otvorena', 'smrekovy');
 
 

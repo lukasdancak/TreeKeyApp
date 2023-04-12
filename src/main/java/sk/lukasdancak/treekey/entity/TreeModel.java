@@ -20,22 +20,22 @@ public class TreeModel {
     private String slovakName;
 
     //description of tree
-    @Column(name = "descrition", nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
 
     // slovak: čeľaď
     @ManyToOne
-    @JoinColumn(name = "family_id", nullable = false)
+    @JoinColumn(name = "family_name", nullable = false)
     private FamilyModel family;
 
     // bush, tree, etc.; slovak: ker, strom  atď
     @ManyToOne
-    @JoinColumn(name = "habitus_id", nullable = false)
+    @JoinColumn(name = "habitus_name", nullable = false)
     private HabitusModel habitus;
 
     // ross, slovak: borka, kora
     @ManyToOne
-    @JoinColumn(name = "rhytidome_id", nullable = false)
+    @JoinColumn(name = "rhytidome_name", nullable = false)
     private RhytidomeModel rhytidome;
 
     //shape of leafs blade
