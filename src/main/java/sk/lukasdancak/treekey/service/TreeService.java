@@ -23,6 +23,9 @@ public class TreeService {
         this.familyService = familyService;
     }
 
+    // check if received TreeDTO has values in database and if yes then return TreeModel
+
+
 
     public List<TreeModel> getAll() {
         return (treeRepository.findAll().stream().toList());

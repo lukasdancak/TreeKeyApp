@@ -26,6 +26,12 @@
             <properties>
                 <activatedProperties>prod</activatedProperties>
             </properties>
+            <activation>
+                <property>
+                    <name>environment</name>
+                    <value>prod</value>
+                </property>
+            </activation>
         </profile>
     </profiles>
 
