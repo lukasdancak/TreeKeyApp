@@ -6,4 +6,4 @@ App for identification of tree species in Slovakia
 
 ### running on address:
 
-[treekeyapp-production.up.railway.app](treekeyapp-production.up.railway.app)
+[treekeyapp-production.up.railway.app](https://treekeyapp-production.up.railway.app/)
