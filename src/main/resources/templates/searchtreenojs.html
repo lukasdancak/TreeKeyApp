@@ -10,11 +10,9 @@
 <body>
 
 <section layout:fragment="content">
-    <h2>Search tree no JS H2</h2>
+    <h2 class="media-heading">Search tree - no JavaScript</h2>
+    <p>This is searching form. Insert your data</p>
 
-
-    <h3>Toto je vyhladavaci formular</h3>
-    <p>Zadaj svoje data</p>.
     <!--    formular: -->
     <form action="/searchtreesubmit" method="post">
 
@@ -25,30 +23,32 @@
             <option th:each="habitus : ${habituses}" th:value="${habitus.habitus}"
                     th:text="${habitus.habitus}"></option>
         </select>
-        <br/><br/>
+
         <!--rhytidome part: -->
 
-
-        <button type="submit">Search tree</button>
+        <button type="submit">Search for tree</button>
+        
     </form>
+
+    <hr>
 
     <h3>Results</h3>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <th> Latin name</th>
-            <th> Slovak name</th>
-            <th> Family name</th>
+            <th>Latin name</th>
+            <th>Slovak name</th>
+            <th>Family</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${all_trees_in_db.isEmpty()}">
+        <tr th:if="${AllTrees.isEmpty()}">
             <td colspan="2"> No trees avaliable in database</td>
         </tr>
-        <tr th:each="tree : ${all_trees_in_db}">
+        <tr th:each="tree : ${AllTrees}">
             <td><span th:text="${tree.latinName}"> Latin name </span></td>
             <td><span th:text="${tree.slovakName}"> Slovak name </span></td>
-            <td><span th:text="${tree.family.name}"> Family name </span></td>
+            <td><span th:text="${tree.family.name}"> Family </span></td>
         </tr>
         </tbody>
     </table>

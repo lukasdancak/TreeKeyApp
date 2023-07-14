@@ -4,8 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import sk.lukasdancak.treekey.dto.TreeSearchDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
 import sk.lukasdancak.treekey.service.TreeService;
 
@@ -21,14 +19,15 @@ public class BasicController {
     }
 
     @RequestMapping("/")
-    public String mainPage() {
+    public String mainPage(Model model) {
+        model.addAttribute("showBanner", true);
         return "home";
     }
 
     @RequestMapping(value = "/search-tree-no-js", method = RequestMethod.GET)
     public String getSearchTreeNoJS(Model model) {
         List<TreeModel> allTreesInDB = treeService.getAll();
-        model.addAttribute("all_trees_in_db", allTreesInDB);
+        model.addAttribute("AllTrees", allTreesInDB);
 
         return "searchtreenojs";
     }
