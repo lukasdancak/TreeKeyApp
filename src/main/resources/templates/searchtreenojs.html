@@ -29,11 +29,29 @@
         <!--rhytidome part: -->
 
 
-        <button type="submit">Odoslat registraciu</button>
+        <button type="submit">Search tree</button>
     </form>
 
     <h3>Results</h3>
-    <p>results.....</p>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th> Latin name</th>
+            <th> Slovak name</th>
+            <th> Family name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${all_trees_in_db.isEmpty()}">
+            <td colspan="2"> No trees avaliable in database</td>
+        </tr>
+        <tr th:each="tree : ${all_trees_in_db}">
+            <td><span th:text="${tree.latinName}"> Latin name </span></td>
+            <td><span th:text="${tree.slovakName}"> Slovak name </span></td>
+            <td><span th:text="${tree.family.name}"> Family name </span></td>
+        </tr>
+        </tbody>
+    </table>
 </section>
 
 </body>
