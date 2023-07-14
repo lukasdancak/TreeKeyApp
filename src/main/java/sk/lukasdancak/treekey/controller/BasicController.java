@@ -2,6 +2,7 @@ package sk.lukasdancak.treekey.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sk.lukasdancak.treekey.entity.TreeModel;
@@ -24,7 +25,8 @@ public class BasicController {
         return "home";
     }
 
-    @RequestMapping(value = "/search-tree-no-js", method = RequestMethod.GET)
+    @GetMapping(value = "/search-tree-no-js")
+
     public String getSearchTreeNoJS(Model model) {
         List<TreeModel> allTreesInDB = treeService.getAll();
         model.addAttribute("AllTrees", allTreesInDB);
