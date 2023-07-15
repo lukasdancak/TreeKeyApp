@@ -23,7 +23,7 @@ public class TreeRestController {
         this.treeService = treeService;
     }
 
-    @GetMapping()
+    @GetMapping("/get-all")
     ResponseEntity<?> get() {
         List<TreeModel> treeModelList = null;
         try {
@@ -40,7 +40,7 @@ public class TreeRestController {
 
     }
 
-    @PostMapping()
+    @PostMapping("/add-tree")
     ResponseEntity<?> post(@RequestBody TreeDTO treeDTO) {
         try {
             return new ResponseEntity<>(treeMapper.toDTO(treeService.add(treeDTO)), HttpStatus.OK);
