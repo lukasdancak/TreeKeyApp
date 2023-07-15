@@ -1,5 +1,5 @@
 -- on server database you can change encoding if needed by query:
--- (You can change encoding on the fly without dump/restore)
+-- (You can change encoding on the fly without dump/restore).
 -- update pg_database set encoding = pg_char_to_encoding('UTF8') where datname = 'database_name'
 
 --query for Getting the encoding of a Postgres database:
