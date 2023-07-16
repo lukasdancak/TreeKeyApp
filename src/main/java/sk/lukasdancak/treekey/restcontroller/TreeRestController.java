@@ -23,6 +23,7 @@ public class TreeRestController {
         this.treeService = treeService;
     }
 
+    // RESt API endpoint for getting all trees
     @GetMapping("/get-all")
     ResponseEntity<?> get() {
         List<TreeModel> treeModelList = null;
@@ -39,17 +40,17 @@ public class TreeRestController {
         return new ResponseEntity<>(treeDTOList, HttpStatus.OK);
 
     }
-
-    @PostMapping("/add-tree")
-    ResponseEntity<?> post(@RequestBody TreeDTO treeDTO) {
-        try {
-            return new ResponseEntity<>(treeMapper.toDTO(treeService.add(treeDTO)), HttpStatus.OK);
-        } catch (BadRequestCustom e) {
-            //log e
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
-            //log e
-            return new ResponseEntity<>("Internal error", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+    //  temporaly disabled API link for adding new tree
+//    @PostMapping("/add-tree")
+//    ResponseEntity<?> post(@RequestBody TreeDTO treeDTO) {
+//        try {
+//            return new ResponseEntity<>(treeMapper.toDTO(treeService.add(treeDTO)), HttpStatus.OK);
+//        } catch (BadRequestCustom e) {
+//            //log e
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+//        } catch (Exception e) {
+//            //log e
+//            return new ResponseEntity<>("Internal error", HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }
