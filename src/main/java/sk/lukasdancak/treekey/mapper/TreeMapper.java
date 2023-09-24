@@ -5,6 +5,15 @@ import sk.lukasdancak.treekey.entity.TreeModel;
 
 public class TreeMapper {
     public TreeDTO toDTO(TreeModel treeModel) {
-        return new TreeDTO(treeModel.getLatinName(), treeModel.getSlovakName(), treeModel.getFamily().getName());
-    }
+        return new TreeDTO(treeModel.getId(),
+                            treeModel.getLatinName(),
+                            treeModel.getSlovakName(),
+                            treeModel.getDescription(),
+                            treeModel.getFamily().getName(),
+                            treeModel.getHabitus().getName(),
+                            treeModel.getRhytidome().getName(),
+                            treeModel.getLeafBladeShapesNode().getName(),
+                            treeModel.getLeafVeinsTypesNode().getName()
+                        );
+                                                    }
 }

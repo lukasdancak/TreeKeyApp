@@ -107,8 +107,23 @@ public class TreeModel {
         this.rhytidome = rhytidome;
     }
 
+    public LeafBladeShapesNode getLeafBladeShapesNode() {
+        return leafBladeShapesNode;
+    }
 
-//    public FlowerModel getFlower() {
+    public void setLeafBladeShapesNode(LeafBladeShapesNode leafBladeShapesNode) {
+        this.leafBladeShapesNode = leafBladeShapesNode;
+    }
+
+    public LeafVeinsTypesNode getLeafVeinsTypesNode() {
+        return leafVeinsTypesNode;
+    }
+
+    public void setLeafVeinsTypesNode(LeafVeinsTypesNode leafVeinsTypesNode) {
+        this.leafVeinsTypesNode = leafVeinsTypesNode;
+    }
+
+    //    public FlowerModel getFlower() {
 //        return flower;
 //    }
 //

@@ -39,16 +39,27 @@
             <th>Latin name</th>
             <th>Slovak name</th>
             <th>Family</th>
+            <th>Habitus</th>
+            <th>Rhytidome</th>
+            <th>Leaf blade shape</th>
+            <th>Leaf veins type</th>
+            <th>View button</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${AllTrees.isEmpty()}">
+        <tr th:if="${allTrees.isEmpty()}">
             <td colspan="2"> No trees avaliable in database</td>
         </tr>
-        <tr th:each="tree : ${AllTrees}">
+        <tr th:each="tree : ${allTrees}">
             <td><span th:text="${tree.latinName}"> Latin name </span></td>
             <td><span th:text="${tree.slovakName}"> Slovak name </span></td>
-            <td><span th:text="${tree.family.name}"> Family </span></td>
+            <td><span th:text="${tree.familyName}"> Family </span></td>
+            <td><span th:text="${tree.habitusName}"> Habitus </span></td>
+            <td><span th:text="${tree.rhytidomeName}"> Habitus </span></td>
+            <td><span th:text="${tree.leafBladeShapeName}"> Habitus </span></td>
+            <td><span th:text="${tree.leafVeinsTypeName}"> Habitus </span></td>
+            <td><a th:href="@{/tree/{treeId}(treeId=${tree.id})}" class="btn btn-primary">link</a></td>
+
         </tr>
         </tbody>
     </table>
