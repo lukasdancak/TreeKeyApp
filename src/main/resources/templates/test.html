@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/user-layout.html}"
+      lang="en">
+<head>
+
+</head>
+
+<body>
+
+<section layout:fragment="content">
+    <h2>Test</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Latin name</th>
+            <th>Slovak name</th>
+            <th>Description</th>
+            <th>Family</th>
+            <th>Habitus</th>
+            <th>Rhytidome</th>
+            <th>Leaf blade shape</th>
+            <th>Leaf veins type</th>
+                    </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><span th:text="${treeSearchDTO.latinName}"> Latin name </span></td>
+            <td><span th:text="${treeSearchDTO.slovakName}"> Slovak name </span></td>
+            <td><span th:text="${treeSearchDTO.description}"> Family </span></td>
+            <td><span th:text="${treeSearchDTO.familyName}"> Family </span></td>
+            <td><span th:text="${treeSearchDTO.habitusName}"> Habitus </span></td>
+            <td><span th:text="${treeSearchDTO.rhytidomeName}"> Habitus </span></td>
+            <td><span th:text="${treeSearchDTO.leafBladeShapeName}"> Habitus </span></td>
+            <td><span th:text="${treeSearchDTO.leafVeinsTypeName}"> Habitus </span></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+</body>
+</html>

@@ -2,12 +2,15 @@ package sk.lukasdancak.treekey.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import sk.lukasdancak.treekey.dto.LeafBladeShapeDTO;
 import sk.lukasdancak.treekey.dto.TreeDTO;
+import sk.lukasdancak.treekey.dto.TreeSearchDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
+import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
+import sk.lukasdancak.treekey.mapper.LeafBladeShapeMapper;
 import sk.lukasdancak.treekey.mapper.TreeMapper;
+import sk.lukasdancak.treekey.service.LeafBladeShapesService;
 import sk.lukasdancak.treekey.service.TreeService;
 
 import java.util.List;
@@ -17,10 +20,13 @@ import java.util.stream.Collectors;
 public class BasicController {
 
     private final TreeService treeService;
+    private final LeafBladeShapesService leafBladeShapesService;
     private TreeMapper treeMapper = new TreeMapper();
+    private LeafBladeShapeMapper leafBladeShapeMapper = new LeafBladeShapeMapper();
 
-    public BasicController(TreeService treeService) {
+    public BasicController(TreeService treeService, LeafBladeShapesService leafShapesService) {
         this.treeService = treeService;
+        this.leafBladeShapesService = leafShapesService;
     }
 
     @RequestMapping("/")
@@ -29,22 +35,18 @@ public class BasicController {
         return "home";
     }
 
-    @GetMapping(value = "/search-tree-no-js")
-    public String getSearchTreeNoJS(Model model) {
+
+    @RequestMapping(value = "/search-tree-no-js", method = {RequestMethod.GET, RequestMethod.POST })
+    public String postSearchTreeNoJS(@ModelAttribute("treeSearchDTO") TreeSearchDTO treeSearchDTO, Model model) {
         List<TreeModel> allTreesEntity = treeService.getAll();
         List<TreeDTO> allTreesDTO = allTreesEntity.stream().map(t->treeMapper.toDTO(t)).collect(Collectors.toList());
+        List<LeafBladeShapesNode> leafShapesEntity = leafBladeShapesService.getAll();
+        List<LeafBladeShapeDTO> leafShapesDTO = leafShapesEntity.stream().map(l->leafBladeShapeMapper.toDTO(l)).collect(Collectors.toList());
         model.addAttribute("allTrees", allTreesDTO);
-
+        model.addAttribute("treeSearchDTO", treeSearchDTO);
+        model.addAttribute("leafShapes", leafShapesDTO);
         return "searchtreenojs";
     }
 
-//    @RequestMapping("/searchtree")
-//    public String searchNoJSPage(Model model, @RequestParam String habitusName) {
-//        TreeSearchDTO treeSearchRequest = new TreeSearchDTO(habitusName);
-//        // check data of treeSearchRequest in database
-//        //if OK then get the list of finded trees
-//        // add list to model
-//        // return page
-//        return "searchtreenojs";
-//    }
+
 }

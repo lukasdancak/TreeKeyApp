@@ -11,18 +11,34 @@
 
 <section layout:fragment="content">
     <h2 class="media-heading">Search tree - no JavaScript</h2>
-    <p>This is searching form. Insert your data</p>
+    <p>This is searching form. Insert your data..... ........... . ......................... ... .... ......................... </p>
 
-    <!--    formular: -->
-    <form action="/searchtreesubmit" method="post">
+    <!--    form.   -->
+    <form action="/search-tree-no-js" method="post" th:object="${treeSearchDTO}">
+
+        <!--leaf shape part: -->
+        <label for="leafBladeShapeName">Tvar lista</label>
+        <select class="form-control"
+
+                id="leafBladeShapeName"
+                name="leafBladeShapeName" >
+<!-- th:field="*{leafBladeShapeName}" commented out from select tag. This "th:field" cannot be used in above select tag
+when "th:selected" is used in "option" tag. The "th:field" should be replaced by id="" and name="", the functionality is
+the same.-->
+            <option value="null">nedefinovane</option>
+            <option th:each="leafShape : ${leafShapes}"
+                    th:value="${leafShape.name}"
+                    th:text="${leafShape.prefix} + ' ' + ${leafShape.name}"
+                    th:selected="${treeSearchDTO.leafBladeShapeName == leafShape.name}"></option>
+        </select>
 
         <!--habitus part: -->
-        <label for="habitus-name">Habitus stromu:</label>
-        <select class="form-control" id="habitus-name" name="habitusName">
-            <option value="undefined">nedefinovane</option>
-            <option th:each="habitus : ${habituses}" th:value="${habitus.habitus}"
-                    th:text="${habitus.habitus}"></option>
-        </select>
+<!--        <label for="habitus-name">Habitus stromu:</label>-->
+<!--        <select class="form-control" id="habitus-name" name="habitusName">-->
+<!--            <option value="undefined">nedefinovane</option>-->
+<!--            <option th:each="habitus : ${habituses}" th:value="${habitus.habitus}"-->
+<!--                    th:text="${habitus.habitus}"></option>-->
+<!--        </select>-->
 
         <!--rhytidome part: -->
 

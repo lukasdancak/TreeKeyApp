@@ -4,6 +4,7 @@ import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
 
 public class TreeMapper {
+
     public TreeDTO toDTO(TreeModel treeModel) {
         return new TreeDTO(treeModel.getId(),
                             treeModel.getLatinName(),
@@ -16,4 +17,6 @@ public class TreeMapper {
                             treeModel.getLeafVeinsTypesNode().getName()
                         );
                                                     }
+
+
 }

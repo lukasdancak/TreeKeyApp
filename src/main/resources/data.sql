@@ -25,18 +25,19 @@ VALUES ('smrekovy', 'malé jemné šupiny'),
         'v dôsledku druhotného hrubnutia kmeňa sa borka napína a následne puká a prstencovite (priečne) sa odlupuje v tenkých plátoch'),
        ('platanovy', ' borka, ktorá sa postupne odlupuje v rôzne veľkých plátoch');
 
-INSERT INTO leaf_blade_shapes_nodes(level, name, parent_name)
-VALUES (1, 'zlozene', null),
-       (1, 'jednoduche', null),
-       (2, 'celistve', 'jednoduche'),
-       (2, 'delene', 'jednoduche'),
-       (2, 'perovito-zlozene', 'zlozene'),
-       (2, 'dlanovito-zlozene', 'zlozene'),
-       (3, 'lalocnate', 'delene'),
-       (3, 'ciarkovity (ihlicovity)', 'celistve'),
-       (3, 'elipsovity', 'celistve'),
-       (4, 'perovito-lalocnaty', 'lalocnate'),
-       (3, 'trojpocetny', 'dlanovito-zlozene');
+INSERT INTO leaf_blade_shapes_nodes(level, name, parent_name, prefix)
+VALUES (1, 'zlozene', null, '1'),
+       (2, 'perovito-zlozene', 'zlozene', '1.1'),
+       (2, 'dlanovito-zlozene', 'zlozene', '1.2'),
+       (3, 'trojpocetny', 'dlanovito-zlozene', '1.2.1'),
+       (1, 'jednoduche', null, '2'),
+       (2, 'celistve', 'jednoduche', '2.1'),
+       (3, 'ciarkovity (ihlicovity)', 'celistve', '2.1.1'),
+       (3, 'elipsovity', 'celistve', '2.1.2'),
+       (2, 'delene', 'jednoduche', '2.2'),
+       (3, 'lalocnate', 'delene', '2.2.1'),
+       (4, 'perovito-lalocnaty', 'lalocnate', '2.2.1.1');
+
 
 INSERT INTO leaf_veins_types_nodes(level, name, parent_name)
 VALUES (1, 'nahosemennych – otvorena', null),
