@@ -30,13 +30,22 @@ public class TreeModel {
 
     // bush, tree, etc.; slovak: ker, strom  atď
     @ManyToOne
-    @JoinColumn(name = "habitus_name", nullable = false)
-    private HabitusModel habitus;
+    @JoinColumn(name = "primary_habitus_name", nullable = false)
+    private HabitusModel primaryHabitus;
+
+    @ManyToOne
+    @JoinColumn(name = "secondary_habitus_name", nullable = false)
+    private HabitusModel secondaryHabitus;
 
     // ross, slovak: borka, kora
     @ManyToOne
-    @JoinColumn(name = "rhytidome_name", nullable = false)
-    private RhytidomeModel rhytidome;
+    @JoinColumn(name = "primary_rhytidome_name", nullable = false)
+    private RhytidomeModel primaryRhytidome;
+
+    @ManyToOne
+    @JoinColumn(name = "secondary_rhytidome_name", nullable = false)
+    private RhytidomeModel secondaryRhytidome;
+
 
     //shape of leafs blade
     @ManyToOne
@@ -95,20 +104,28 @@ public class TreeModel {
         this.family = family;
     }
 
-    public HabitusModel getHabitus() {
-        return habitus;
+    public HabitusModel getPrimaryHabitus() {
+        return primaryHabitus;
     }
 
-    public void setHabitus(HabitusModel habitus) {
-        this.habitus = habitus;
+    public void setPrimaryHabitus(HabitusModel primaryHabitus) {
+        this.primaryHabitus = primaryHabitus;
     }
 
-    public RhytidomeModel getRhytidome() {
-        return rhytidome;
+    public RhytidomeModel getPrimaryRhytidome() {
+        return primaryRhytidome;
     }
 
-    public void setRhytidome(RhytidomeModel rhytidome) {
-        this.rhytidome = rhytidome;
+    public void setPrimaryRhytidome(RhytidomeModel primaryRhytidome) {
+        this.primaryRhytidome = primaryRhytidome;
+    }
+
+    public RhytidomeModel getSecondaryRhytidome() {
+        return secondaryRhytidome;
+    }
+
+    public void setSecondaryRhytidome(RhytidomeModel secondaryRhytidome) {
+        this.secondaryRhytidome = secondaryRhytidome;
     }
 
     public LeafBladeShapesNode getLeafBladeShapesNode() {

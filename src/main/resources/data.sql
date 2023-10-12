@@ -76,13 +76,13 @@ VALUES (1, 'nahosemennych – otvorena', null),
 
 
 -- trees data
-INSERT INTO trees(id, description, latin_name, slovak_name, family_name,  leaf_blade_shapes_node_name,
-                  leaf_veins_type_name, native_species)
-VALUES (1, 'popis popis 1', 'Picea abies', 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)',
-        'nahosemennych – otvorena', true),
-       (2, 'popis popis 2', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
-        'krytosemennych (dvojklicnolistovych) – uzatvorena', true),
-       (3, 'popis popis 3', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
-        'krytosemennych (dvojklicnolistovych) – uzatvorena', true);
+-- INSERT INTO trees(id, description, latin_name, slovak_name, family_name,  leaf_blade_shapes_node_name,
+--                   leaf_veins_type_name, native_species)
+-- VALUES (1, 'popis popis 1', 'Picea abies', 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)',
+--         'nahosemennych – otvorena', true),
+--        (2, 'popis popis 2', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
+--         'krytosemennych (dvojklicnolistovych) – uzatvorena', true),
+--        (3, 'popis popis 3', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
+--         'krytosemennych (dvojklicnolistovych) – uzatvorena', true);
 
 

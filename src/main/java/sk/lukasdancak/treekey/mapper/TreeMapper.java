@@ -11,8 +11,8 @@ public class TreeMapper {
                             treeModel.getSlovakName(),
                             treeModel.getDescription(),
                             treeModel.getFamily().getName(),
-                            treeModel.getHabitus().getName(),
-                            treeModel.getRhytidome().getName(),
+                            treeModel.getPrimaryHabitus().getName(),
+                            treeModel.getPrimaryRhytidome().getName(),
                             treeModel.getLeafBladeShapesNode().getName(),
                             treeModel.getLeafVeinsTypesNode().getName()
                         );
