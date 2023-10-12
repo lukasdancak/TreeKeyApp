@@ -48,6 +48,10 @@ public class TreeModel {
     @JoinColumn(name = "leaf_veins_type_name")
     LeafVeinsTypesNode leafVeinsTypesNode;
 
+    // is species the native in Slovakia ?
+    @Column(name = "native_species", nullable = false)
+    Boolean nativeSpecies;
+
 
     // to finish this later
 //    @ManyToOne

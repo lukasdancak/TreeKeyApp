@@ -18,4 +18,6 @@ public class LeafBladeShapesService {
     public List<LeafBladeShapesNode> getAll() {
         return leafBladeShapesRepository.findAll().stream().toList();
     }
+
+    public List<LeafBladeShapesNode> findAllChildrenNodes(LeafBladeShapesNode node) {return null;}
 }

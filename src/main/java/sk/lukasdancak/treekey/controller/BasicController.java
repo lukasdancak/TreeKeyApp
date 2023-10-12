@@ -38,10 +38,12 @@ public class BasicController {
 
     @RequestMapping(value = "/search-tree-no-js", method = {RequestMethod.GET, RequestMethod.POST })
     public String postSearchTreeNoJS(@ModelAttribute("treeSearchDTO") TreeSearchDTO treeSearchDTO, Model model) {
-        List<TreeModel> allTreesEntity = treeService.getAll();
+        List<TreeModel> allTreesEntity = treeService.searchTrees(treeSearchDTO);
         List<TreeDTO> allTreesDTO = allTreesEntity.stream().map(t->treeMapper.toDTO(t)).collect(Collectors.toList());
-        List<LeafBladeShapesNode> leafShapesEntity = leafBladeShapesService.getAll();
-        List<LeafBladeShapeDTO> leafShapesDTO = leafShapesEntity.stream().map(l->leafBladeShapeMapper.toDTO(l)).collect(Collectors.toList());
+        List<LeafBladeShapeDTO> leafShapesDTO = leafBladeShapesService.getAll()
+                                                                      .stream()
+                                                                      .map(l->leafBladeShapeMapper.toDTO(l))
+                                                                      .collect(Collectors.toList());
         model.addAttribute("allTrees", allTreesDTO);
         model.addAttribute("treeSearchDTO", treeSearchDTO);
         model.addAttribute("leafShapes", leafShapesDTO);

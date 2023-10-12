@@ -4,12 +4,15 @@ import org.springframework.stereotype.Service;
 import sk.lukasdancak.treekey.customexception.BadRequestCustom;
 import sk.lukasdancak.treekey.customexception.DbComunicationProblemCustom;
 import sk.lukasdancak.treekey.dto.TreeDTO;
+import sk.lukasdancak.treekey.dto.TreeSearchDTO;
 import sk.lukasdancak.treekey.entity.FamilyModel;
 import sk.lukasdancak.treekey.entity.TreeModel;
+import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
 import sk.lukasdancak.treekey.repository.TreeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TreeService {
@@ -17,10 +20,12 @@ public class TreeService {
 
     private final TreeRepository treeRepository;
     private final FamilyService familyService;
+    private final LeafBladeShapesService leafBladeShapesService;
 
-    public TreeService(TreeRepository treeRepository, FamilyService familyService) {
+    public TreeService(TreeRepository treeRepository, FamilyService familyService, LeafBladeShapesService leafBladeShapesService) {
         this.treeRepository = treeRepository;
         this.familyService = familyService;
+        this.leafBladeShapesService = leafBladeShapesService;
     }
 
     // check if received TreeDTO has values in database and if yes then return TreeModel
@@ -73,5 +78,11 @@ public class TreeService {
         } catch (Exception e) {
             throw new DbComunicationProblemCustom("Problem s databazou: treeService.add()>treeRepository.save(tree)", e);
         }
+    }
+
+    public List<TreeModel> searchTrees(TreeSearchDTO treeSearchDTO) {
+        return null;
+
+
     }
 }

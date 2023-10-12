@@ -14,8 +14,7 @@ VALUES ('Pinaceae', 'Acidaedsadasd jh ug gzguz zu'),
 INSERT INTO habituses(name, description)
 VALUES ('strom', 'kmen+koruna'),
        ('ker', 'rozkonareny od bazy'),
-       ('kricek', 'drobny ker'),
-       ('poloker', 'nadbazalna cas stonky je bylinnej konzistencie');
+       ('liana', 'popinava drevina');
 
 INSERT INTO rhytidomes(name, description)
 VALUES ('smrekovy', 'malé jemné šupiny'),
@@ -27,31 +26,63 @@ VALUES ('smrekovy', 'malé jemné šupiny'),
 
 INSERT INTO leaf_blade_shapes_nodes(level, name, parent_name, prefix)
 VALUES (1, 'zlozene', null, '1'),
+
        (2, 'perovito-zlozene', 'zlozene', '1.1'),
+       (3, 'neparno-perovito-zlozeny', 'perovito-zlozene', '1.1.1'),
+       (3, 'parno-perovito-zlozeny', 'perovito-zlozene', '1.1.2'),
+
+
        (2, 'dlanovito-zlozene', 'zlozene', '1.2'),
        (3, 'trojpocetny', 'dlanovito-zlozene', '1.2.1'),
+       (3, 'patpocetny', 'dlanovito-zlozene', '1.2.2'),
+       (3, 'sedempocetny', 'dlanovito-zlozene', '1.2.3'),
+
        (1, 'jednoduche', null, '2'),
        (2, 'celistve', 'jednoduche', '2.1'),
        (3, 'ciarkovity (ihlicovity)', 'celistve', '2.1.1'),
-       (3, 'elipsovity', 'celistve', '2.1.2'),
+       (3, 'kopijovitý', 'celistve', '2.1.2'),
+       (3, 'elipsovity', 'celistve', '2.1.3'),
+       (3, 'vajcovitý', 'celistve', '2.1.4'),
+       (3, 'deltoidicky', 'celistve', '2.1.5'),
+       (3, 'srdcovitý', 'celistve', '2.1.6'),
+       (3, 'obrateno-vajcovity', 'celistve', '2.1.7'),
+       (3, 'okruhlasty', 'celistve', '2.1.8'),
+       (3, 'nesumerny', 'celistve', '2.1.9'),
+
        (2, 'delene', 'jednoduche', '2.2'),
+
        (3, 'lalocnate', 'delene', '2.2.1'),
-       (4, 'perovito-lalocnaty', 'lalocnate', '2.2.1.1');
+       (4, 'perovito-lalocnaty', 'lalocnate', '2.2.1.1'),
+       (4, 'dlanovito-lalocnaty', 'lalocnate', '2.2.1.2'),
+
+       (3, 'zarezove', 'delene', '2.2.2'),
+       (4, 'perovito-zarezovy', 'zarezove', '2.2.2.1'),
+       (4, 'dlanovito-zarezovy', 'zarezove', '2.2.2.2'),
+
+       (3, 'dielne', 'delene', '2.2.3'),
+       (4, 'perovito-dielny', 'dielne', '2.2.3.1'),
+       (4, 'dlanovito-dielny', 'dielne', '2.2.3.2');
 
 
 INSERT INTO leaf_veins_types_nodes(level, name, parent_name)
 VALUES (1, 'nahosemennych – otvorena', null),
-       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null);
+            (2, 's-jednou-zilou', 'nahosemennych – otvorena'),
+            (2, 's-dvomi-zilami', 'nahosemennych – otvorena'),
+            (2, 'vejarovita', 'nahosemennych – otvorena'),
+
+       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null),
+            (2, 'perovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena'),
+            (2, 'dlanovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena');
 
 
 -- trees data
-INSERT INTO trees(id, description, latin_name, slovak_name, family_name, habitus_name, leaf_blade_shapes_node_name,
-                  leaf_veins_type_name, rhytidome_name)
-VALUES (1, 'popis popis 1', 'Picea abies', 'smrek obyčajný', 'Pinaceae', 'strom', 'ciarkovity (ihlicovity)',
-        'nahosemennych – otvorena', 'smrekovy'),
-       (2, 'popis popis 2', 'Fagus sylvatica', 'buk lesný', 'Fagaceae', 'strom', 'elipsovity',
-        'krytosemennych (dvojklicnolistovych) – uzatvorena', 'bukovy'),
-       (3, 'popis popis 3', 'Fagus sylvatica', 'buk lesný', 'Fagaceae', 'strom', 'elipsovity',
-        'krytosemennych (dvojklicnolistovych) – uzatvorena', 'bukovy');
+INSERT INTO trees(id, description, latin_name, slovak_name, family_name,  leaf_blade_shapes_node_name,
+                  leaf_veins_type_name, native_species)
+VALUES (1, 'popis popis 1', 'Picea abies', 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)',
+        'nahosemennych – otvorena', true),
+       (2, 'popis popis 2', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
+        'krytosemennych (dvojklicnolistovych) – uzatvorena', true),
+       (3, 'popis popis 3', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
+        'krytosemennych (dvojklicnolistovych) – uzatvorena', true);
 
 
