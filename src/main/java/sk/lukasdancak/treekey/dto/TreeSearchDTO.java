@@ -74,5 +74,19 @@ public class TreeSearchDTO {
     public void setLeafVeinsTypeName(String leafVeinsTypeName) {
         this.leafVeinsTypeName = leafVeinsTypeName;
     }
+
+    @Override
+    public String toString() {
+        return "TreeSearchDTO{" +
+                "latinName='" + latinName + '\'' +
+                ", slovakName='" + slovakName + '\'' +
+                ", description='" + description + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", habitusName='" + habitusName + '\'' +
+                ", rhytidomeName='" + rhytidomeName + '\'' +
+                ", leafBladeShapeName='" + leafBladeShapeName + '\'' +
+                ", leafVeinsTypeName='" + leafVeinsTypeName + '\'' +
+                '}';
+    }
 }
 
