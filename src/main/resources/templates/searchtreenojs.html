@@ -25,7 +25,7 @@
 <!-- th:field="*{leafBladeShapeName}" commented out from select tag. This "th:field" cannot be used in above select tag
 when "th:selected" is used in "option" tag. The "th:field" should be replaced by id="" and name="", the functionality is
 the same.-->
-            <option value="null">nedefinovane</option>
+            <option value="">nedefinovane</option>
             <option th:each="leafShape : ${leafShapes}"
                     th:value="${leafShape.name}"
                     th:text="${leafShape.prefix} + ' ' + ${leafShape.name}"
