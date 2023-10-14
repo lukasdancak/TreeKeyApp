@@ -1,7 +1,9 @@
 package sk.lukasdancak.treekey.controller;
 
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import sk.lukasdancak.treekey.dto.LeafBladeShapeDTO;
 import sk.lukasdancak.treekey.dto.TreeDTO;
@@ -27,6 +29,14 @@ public class BasicController {
     public BasicController(TreeService treeService, LeafBladeShapesService leafShapesService) {
         this.treeService = treeService;
         this.leafBladeShapesService = leafShapesService;
+    }
+
+    // Binder. Empty String from form is setted to String object as NULL
+    // Globall binder via class with @ControllerAdvice annotation is not working now
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder) {
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
 
     @RequestMapping("/")
