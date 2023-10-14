@@ -7,12 +7,11 @@ import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.dto.TreeSearchDTO;
 import sk.lukasdancak.treekey.entity.FamilyModel;
 import sk.lukasdancak.treekey.entity.TreeModel;
-import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
+import sk.lukasdancak.treekey.repository.TreeRepositoryCustom;
 import sk.lukasdancak.treekey.repository.TreeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TreeService {
@@ -81,10 +80,8 @@ public class TreeService {
     }
 
     public List<TreeModel> searchTrees(TreeSearchDTO treeSearchDTO) {
-        if (treeSearchDTO.getLeafBladeShapeName()!=null){
 
-        }
-        return getAll();
+        return treeRepository.searchTreesByProperties(treeSearchDTO);
 
 
     }
