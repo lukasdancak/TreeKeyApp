@@ -112,6 +112,14 @@ public class TreeModel {
         this.primaryHabitus = primaryHabitus;
     }
 
+    public HabitusModel getSecondaryHabitus() {
+        return secondaryHabitus;
+    }
+
+    public void setSecondaryHabitus(HabitusModel secondaryHabitus) {
+        this.secondaryHabitus = secondaryHabitus;
+    }
+
     public RhytidomeModel getPrimaryRhytidome() {
         return primaryRhytidome;
     }

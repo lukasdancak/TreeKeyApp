@@ -6,8 +6,10 @@ public record TreeDTO(Long id,
                       String slovakName,
                       String description,
                       String familyName,
-                      String habitusName,
-                      String rhytidomeName,
+                      String primaryHabitusName,
+                      String secondaryHabitusName,
+                      String primaryRhytidomeName,
+                      String secondaryRhytidomeName,
                       String leafBladeShapeName,
                       String leafVeinsTypeName
                     ) {}

@@ -7,14 +7,25 @@
 
 -- basic data
 INSERT INTO families(name, description)
-VALUES ('Pinaceae', 'Acidaedsadasd jh ug gzguz zu'),
-       ('Fagaceae', 'Dfgfg fdg dfg dfg fdg uz zu'),
-       ('Aceraceae', 'Ddsadasd hhhuzg zgzguz');
+VALUES ('Pinaceae', 'Lorem ipsum'),
+       ( 'Fagaceae', 'Lorem ipsum' ),
+       ( 'Salicaceae', 'Lorem ipsum' ),
+       ( 'Corylaceae', 'Lorem ipsum' ),
+       ( 'Tiliaceae', 'Lorem ipsum' ),
+       ( 'Betulaceae', 'Lorem ipsum' ),
+       ( 'Ulmaceae', 'Lorem ipsum' ),
+       ( 'Aceraceae', 'Lorem ipsum' ),
+       ( 'Adoxaceae', 'Lorem ipsum' ),
+       ( 'Rosaceae', 'Lorem ipsum' ),
+       ( 'Sapindaceae', 'Lorem ipsum' ),
+       ( 'Fabaceae', 'Lorem ipsum' );
 
 INSERT INTO habituses(name, description)
 VALUES ('strom', 'kmen+koruna'),
        ('ker', 'rozkonareny od bazy'),
-       ('liana', 'popinava drevina');
+       ('liana', 'popinava drevina'),
+       ('N/A', 'nestanovene, nevyskytuje sa sekundarny typ');
+
 
 INSERT INTO rhytidomes(name, description)
 VALUES ('smrekovy', 'malé jemné šupiny'),
@@ -22,7 +33,8 @@ VALUES ('smrekovy', 'malé jemné šupiny'),
        ('bukovy', 'povrch kmeňa zostáva hladký'),
        ('brezovy',
         'v dôsledku druhotného hrubnutia kmeňa sa borka napína a následne puká a prstencovite (priečne) sa odlupuje v tenkých plátoch'),
-       ('platanovy', ' borka, ktorá sa postupne odlupuje v rôzne veľkých plátoch');
+       ('platanovy', ' borka, ktorá sa postupne odlupuje v rôzne veľkých plátoch'),
+       ('N/A', 'nestanovene, nevyskytuje sa sekundarny typ');
 
 INSERT INTO leaf_blade_shapes_nodes(level, name, parent_name, prefix)
 VALUES (1, 'zlozene', null, '1'),
@@ -40,11 +52,11 @@ VALUES (1, 'zlozene', null, '1'),
        (1, 'jednoduche', null, '2'),
        (2, 'celistve', 'jednoduche', '2.1'),
        (3, 'ciarkovity (ihlicovity)', 'celistve', '2.1.1'),
-       (3, 'kopijovitý', 'celistve', '2.1.2'),
+       (3, 'kopijovity', 'celistve', '2.1.2'),
        (3, 'elipsovity', 'celistve', '2.1.3'),
-       (3, 'vajcovitý', 'celistve', '2.1.4'),
+       (3, 'vajcovity', 'celistve', '2.1.4'),
        (3, 'deltoidicky', 'celistve', '2.1.5'),
-       (3, 'srdcovitý', 'celistve', '2.1.6'),
+       (3, 'srdcovity', 'celistve', '2.1.6'),
        (3, 'obrateno-vajcovity', 'celistve', '2.1.7'),
        (3, 'okruhlasty', 'celistve', '2.1.8'),
        (3, 'nesumerny', 'celistve', '2.1.9'),
@@ -76,13 +88,18 @@ VALUES (1, 'nahosemennych – otvorena', null),
 
 
 -- trees data
--- INSERT INTO trees(id, description, latin_name, slovak_name, family_name,  leaf_blade_shapes_node_name,
---                   leaf_veins_type_name, native_species)
--- VALUES (1, 'popis popis 1', 'Picea abies', 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)',
---         'nahosemennych – otvorena', true),
---        (2, 'popis popis 2', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
---         'krytosemennych (dvojklicnolistovych) – uzatvorena', true),
---        (3, 'popis popis 3', 'Fagus sylvatica', 'buk lesný', 'Fagaceae',  'elipsovity',
---         'krytosemennych (dvojklicnolistovych) – uzatvorena', true);
+INSERT INTO trees(id, description, latin_name, native_species, slovak_name, family_name,  leaf_blade_shapes_node_name,
+                  leaf_veins_type_name, primary_habitus_name, secondary_habitus_name, primary_rhytidome_name,  secondary_rhytidome_name )
+VALUES (1, 'popis popis 1', 'Picea abies', true, 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)','nahosemennych – otvorena', 'strom',  'N/A', 'smrekovy', 'N/A'),
+       (2, 'popis xyz', 'Fagus sylvatica ', TRUE, 'buk lesný', 'Fagaceae', 'elipsovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+
+       (4, 'popis xyz', 'Salix alba ', TRUE, 'vŕba biela', 'Salicaceae', 'kopijovity', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (5, 'popis xyz', 'Carpinus betulus ', TRUE, 'hrab obyčajný', 'Corylaceae', 'vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (6, 'popis xyz', 'Populus nigra ', TRUE, 'topoľ čierny', 'Salicaceae', 'deltoidicky', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (7, 'popis xyz', 'Tilia platyphyllos', TRUE, 'lipa veľkolistá', 'Tiliaceae', 'srdcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (8, 'popis xyz', 'Alnus glutinosa', TRUE, 'jelša lepkavá', 'Betulaceae', 'obrateno-vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (9, 'popis xyz', 'Populus tremula ', TRUE, 'topoľ osikový', 'Salicaceae', 'okruhlasty', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (10, 'popis xyz', 'Corylus avellana ', TRUE, 'lieska obyčajná', 'Corylaceae', 'okruhlasty', 'perovita', 'ker', 'strom', 'bukovy', 'smrekovy' );
+
 
 

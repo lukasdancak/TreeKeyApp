@@ -52,8 +52,10 @@ the same.-->
             <th>Latin name</th>
             <th>Slovak name</th>
             <th>Family</th>
-            <th>Habitus</th>
-            <th>Rhytidome</th>
+            <th>Primary habitus</th>
+            <th>Secondary habitus</th>
+            <th>Primary rhytidome</th>
+            <th>Secondary rhytidome</th>
             <th>Leaf blade shape</th>
             <th>Leaf veins type</th>
             <th>View button</th>
@@ -67,10 +69,12 @@ the same.-->
             <td><span th:text="${tree.latinName}"> Latin name </span></td>
             <td><span th:text="${tree.slovakName}"> Slovak name </span></td>
             <td><span th:text="${tree.familyName}"> Family </span></td>
-            <td><span th:text="${tree.habitusName}"> Habitus </span></td>
-            <td><span th:text="${tree.rhytidomeName}"> Habitus </span></td>
-            <td><span th:text="${tree.leafBladeShapeName}"> Habitus </span></td>
-            <td><span th:text="${tree.leafVeinsTypeName}"> Habitus </span></td>
+            <td><span th:text="${tree.primaryHabitusName}"> Primary habitus </span></td>
+            <td><span th:text="${tree.secondaryHabitusName}"> Secondary habitus </span></td>
+            <td><span th:text="${tree.primaryRhytidomeName}">Primary rhytidome</span></td>
+            <td><span th:text="${tree.secondaryRhytidomeName}">Secondary rhytidome</span></td>
+            <td><span th:text="${tree.leafBladeShapeName}"> Leaf balde shape </span></td>
+            <td><span th:text="${tree.leafVeinsTypeName}"> Leaf veins type </span></td>
             <td><a th:href="@{/tree/{treeId}(treeId=${tree.id})}" class="btn btn-primary">link</a></td>
 
         </tr>

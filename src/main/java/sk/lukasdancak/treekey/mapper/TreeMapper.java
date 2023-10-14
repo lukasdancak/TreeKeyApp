@@ -12,6 +12,8 @@ public class TreeMapper {
                             treeModel.getDescription(),
                             treeModel.getFamily().getName(),
                             treeModel.getPrimaryHabitus().getName(),
+                            treeModel.getSecondaryHabitus().getName(),
+                            treeModel.getPrimaryRhytidome().getName(),
                             treeModel.getPrimaryRhytidome().getName(),
                             treeModel.getLeafBladeShapesNode().getName(),
                             treeModel.getLeafVeinsTypesNode().getName()
