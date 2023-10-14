@@ -48,6 +48,9 @@ public class BasicController {
 
     @RequestMapping(value = "/search-tree-no-js", method = {RequestMethod.GET, RequestMethod.POST })
     public String postSearchTreeNoJS(@ModelAttribute("treeSearchDTO") TreeSearchDTO treeSearchDTO, Model model) {
+        System.out.println(treeSearchDTO.toString());
+        System.out.println("Is leafBladeShape NULL ?:");
+        System.out.println(treeSearchDTO.getLeafBladeShapeName()==null);
         List<TreeModel> allTreesEntity = treeService.searchTrees(treeSearchDTO);
         List<TreeDTO> allTreesDTO = allTreesEntity.stream().map(t->treeMapper.toDTO(t)).collect(Collectors.toList());
         List<LeafBladeShapeDTO> leafShapesDTO = leafBladeShapesService.getAll()
