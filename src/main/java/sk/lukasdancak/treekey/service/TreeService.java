@@ -81,7 +81,10 @@ public class TreeService {
     }
 
     public List<TreeModel> searchTrees(TreeSearchDTO treeSearchDTO) {
-        return null;
+        if (treeSearchDTO.getLeafBladeShapeName()!=null){
+
+        }
+        return getAll();
 
 
     }
