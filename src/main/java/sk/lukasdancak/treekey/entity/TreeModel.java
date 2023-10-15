@@ -176,5 +176,11 @@ public class TreeModel {
         this.description = description;
     }
 
+    public Boolean getNativeSpecies() {
+        return nativeSpecies;
+    }
 
+    public void setNativeSpecies(Boolean nativeSpecies) {
+        this.nativeSpecies = nativeSpecies;
+    }
 }

@@ -11,5 +11,6 @@ public record TreeDTO(Long id,
                       String primaryRhytidomeName,
                       String secondaryRhytidomeName,
                       String leafBladeShapeName,
-                      String leafVeinsTypeName
+                      String leafVeinsTypeName,
+                      boolean isNative
                     ) {}
