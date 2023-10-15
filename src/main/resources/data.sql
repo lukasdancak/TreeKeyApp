@@ -91,14 +91,14 @@ VALUES (1, 'nahosemennych – otvorena', null),
 INSERT INTO trees(id, description, latin_name, native_species, slovak_name, family_name,  leaf_blade_shapes_node_name,
                   leaf_veins_type_name, primary_habitus_name, secondary_habitus_name, primary_rhytidome_name,  secondary_rhytidome_name )
 VALUES (1, 'popis popis 1', 'Picea abies', true, 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)','nahosemennych – otvorena', 'strom',  'N/A', 'smrekovy', 'N/A'),
-       (2, 'popis xyz', 'Fagus sylvatica ', TRUE, 'buk lesný', 'Fagaceae', 'elipsovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (2, 'popis xyz', 'Fagus sylvatica', TRUE, 'buk lesný', 'Fagaceae', 'elipsovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
 
-       (4, 'popis xyz', 'Salix alba ', TRUE, 'vŕba biela', 'Salicaceae', 'kopijovity', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
-       (5, 'popis xyz', 'Carpinus betulus ', TRUE, 'hrab obyčajný', 'Corylaceae', 'vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
-       (6, 'popis xyz', 'Populus nigra ', TRUE, 'topoľ čierny', 'Salicaceae', 'deltoidicky', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (4, 'popis xyz', 'Salix alba', TRUE, 'vŕba biela', 'Salicaceae', 'kopijovity', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (5, 'popis xyz', 'Carpinus betulus', TRUE, 'hrab obyčajný', 'Corylaceae', 'vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (6, 'popis xyz', 'Populus nigra', TRUE, 'topoľ čierny', 'Salicaceae', 'deltoidicky', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
        (7, 'popis xyz', 'Tilia platyphyllos', TRUE, 'lipa veľkolistá', 'Tiliaceae', 'srdcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
        (8, 'popis xyz', 'Alnus glutinosa', TRUE, 'jelša lepkavá', 'Betulaceae', 'obrateno-vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
-       (9, 'popis xyz', 'Populus tremula ', TRUE, 'topoľ osikový', 'Salicaceae', 'okruhlasty', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (9, 'popis xyz', 'Populus tremula', TRUE, 'topoľ osikový', 'Salicaceae', 'okruhlasty', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
        (10, 'popis xyz', 'Corylus avellana ', TRUE, 'lieska obyčajná', 'Corylaceae', 'okruhlasty', 'perovita', 'ker', 'strom', 'bukovy', 'smrekovy' );
 
 
