@@ -10,14 +10,14 @@
 <body>
 
 <section layout:fragment="content">
-    <h2 class="media-heading">Search tree - no JavaScript</h2>
-    <p>This is searching form.</p>
+    <h2 class="media-heading">Kľúč na určovanie drevín</h2>
+    <p>Zadaj info o drevine, ktoré sú ti známe, do formulára.</p>
 
     <!--    form.   -->
     <form action="/search-tree-no-js" method="get" th:object="${treeSearchDTO}">
 
         <!--leaf shape part: -->
-        <label for="leafBladeShapeName">Tvar lista</label>
+        <label for="leafBladeShapeName">Tvar listu</label>
         <select class="form-control"
 
                 id="leafBladeShapeName"
@@ -45,20 +45,20 @@ the same.-->
 
     <hr>
 
-    <h3>Results</h3>
+    <h3>Výsledky hľadania:</h3>
     <table class="table table-striped table-bordered">
         <thead>
         <tr>
-            <th>Latin name</th>
-            <th>Slovak name</th>
-            <th>Family</th>
-            <th>Primary habitus</th>
-            <th>Secondary habitus</th>
-            <th>Primary rhytidome</th>
-            <th>Secondary rhytidome</th>
-            <th>Leaf blade shape</th>
-            <th>Leaf veins type</th>
-            <th>View button</th>
+            <th>vedecký názov</th>
+            <th>slovenský názov</th>
+            <th>čeľaď</th>
+            <th>prim. habitus</th>
+            <th>sek. habitus</th>
+            <th>prim. rhytidome</th>
+            <th>sek. rhytidome</th>
+            <th>tvar listu</th>
+            <th>typ žilnatiny</th>
+
         </tr>
         </thead>
         <tbody>
