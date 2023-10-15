@@ -62,5 +62,20 @@ public class BasicController {
         return "key";
     }
 
+    @RequestMapping(value="/tree/{treeName}")
+    public String treePage( Model model, @PathVariable String treeName ) {
+
+        TreeModel tree = treeService.getTreeByNameInKebabCaseIgnoreCase(treeName);
+        TreeDTO treeDTO = treeMapper.toDTO(tree);
+        System.out.println(treeDTO.toString() );
+
+        model.addAttribute("tree", treeDTO);
+
+
+
+        return "tree";
+    }
+
+
 
 }
