@@ -66,7 +66,8 @@ the same.-->
             <td colspan="2"> No trees avaliable in database</td>
         </tr>
         <tr th:each="tree : ${allTrees}">
-            <td><span th:text="${tree.latinName}"> Latin name </span></td>
+            <td><a th:href="@{/tree/{treeName}(treeName=${#strings.replace(#strings.replace(tree.latinName, ' ', '-'), '_', '-').toLowerCase()})}"
+                   th:text="${tree.latinName}" class="link-underline-opacity-0 text-nowrap">Latin name</a></td>
             <td><span th:text="${tree.slovakName}"> Slovak name </span></td>
             <td><span th:text="${tree.familyName}"> Family </span></td>
             <td><span th:text="${tree.primaryHabitusName}"> Primary habitus </span></td>
@@ -75,7 +76,7 @@ the same.-->
             <td><span th:text="${tree.secondaryRhytidomeName}">Secondary rhytidome</span></td>
             <td><span th:text="${tree.leafBladeShapeName}"> Leaf balde shape </span></td>
             <td><span th:text="${tree.leafVeinsTypeName}"> Leaf veins type </span></td>
-            <td><a th:href="@{/tree/{treeId}(treeId=${tree.id})}" class="btn btn-primary">link</a></td>
+
 
         </tr>
         </tbody>

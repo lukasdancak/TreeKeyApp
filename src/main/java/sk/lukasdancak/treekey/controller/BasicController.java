@@ -9,7 +9,6 @@ import sk.lukasdancak.treekey.dto.LeafBladeShapeDTO;
 import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.dto.TreeSearchDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
-import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
 import sk.lukasdancak.treekey.mapper.LeafBladeShapeMapper;
 import sk.lukasdancak.treekey.mapper.TreeMapper;
 import sk.lukasdancak.treekey.service.LeafBladeShapesService;
@@ -46,7 +45,7 @@ public class BasicController {
     }
 
 
-    @RequestMapping(value = "/search-tree-no-js", method = {RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = "/kluc", method = {RequestMethod.GET, RequestMethod.POST })
     public String postSearchTreeNoJS(@ModelAttribute("treeSearchDTO") TreeSearchDTO treeSearchDTO, Model model) {
         System.out.println(treeSearchDTO.toString());
         System.out.println("Is leafBladeShape NULL ?:");
@@ -60,7 +59,7 @@ public class BasicController {
         model.addAttribute("allTrees", allTreesDTO);
         model.addAttribute("treeSearchDTO", treeSearchDTO);
         model.addAttribute("leafShapes", leafShapesDTO);
-        return "searchtreenojs";
+        return "key";
     }
 
 

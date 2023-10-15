@@ -7,4 +7,6 @@ import sk.lukasdancak.treekey.entity.TreeModel;
 @Repository
 public interface TreeRepository extends JpaRepository<TreeModel,Long>, TreeRepositoryCustom {
 
+
+        TreeModel findByLatinNameIgnoreCase(String latinName);
 }

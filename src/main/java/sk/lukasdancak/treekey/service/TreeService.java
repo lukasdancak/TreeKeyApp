@@ -82,7 +82,12 @@ public class TreeService {
     public List<TreeModel> searchTrees(TreeSearchDTO treeSearchDTO) {
 
         return treeRepository.searchTreesByProperties(treeSearchDTO);
+    }
 
+    public TreeModel getTreeByNameInKebabCaseIgnoreCase(String treeName){
+
+        treeName = treeName.replaceAll("-"," ");
+        return treeRepository.findByLatinNameIgnoreCase(treeName);
 
     }
 }
