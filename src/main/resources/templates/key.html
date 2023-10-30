@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/user-layout.html}"
+      lang="en">
+<head>
+
+</head>
+
+<body>
+
+<section layout:fragment="content">
+    <h2 class="media-heading">Kľúč na určovanie drevín</h2>
+    <p>Zadaj do formulára info o drevine, ktoré sú ti známe.</p>
+    <p class="alert alert-danger">Zatiaľ je v databáze iba vzorka dát</p>
+
+    <!--    form.   -->
+    <form action="/kluc" method="get" th:object="${treeSearchDTO}">
+
+        <div class=" mb-3">
+            <!--leaf shape part: -->
+            <label for="leafBladeShapeName">Tvar listu</label>
+            <select class="form-control"
+                    id="leafBladeShapeName"
+                    name="leafBladeShapeName" >
+                <!-- th:field="*{leafBladeShapeName}" commented out from select tag. This "th:field" cannot be used in above select tag
+                when "th:selected" is used in "option" tag. The "th:field" should be replaced by id="" and name="", the functionality is
+                the same.-->
+                <option value="">nedefinovane</option>
+                <option th:each="leafShape : ${leafShapes}"
+                        th:value="${leafShape.name}"
+                        th:text="${leafShape.prefix} + ' ' + ${leafShape.name}"
+                        th:selected="${treeSearchDTO.leafBladeShapeName == leafShape.name}"></option>
+            </select>
+        </div>
+
+
+
+        <div class="mb-3">
+            <!--        label + select for leaf veins type-->
+            <label for="leafVeinsTypeName">Typ žilnatiny</label>
+            <select class="form-control" id="leafVeinsTypeName" name="leafVeinsTypeName">
+                <option value="">nedefinovane</option>
+                <option th:each="leafVeinsType : ${leafVeinsTypes}"
+                        th:value="${leafVeinsType.name}"
+                        th:text="${leafVeinsType.prefix} + ' ' + ${leafVeinsType.name}"
+                        th:selected="${treeSearchDTO.leafVeinsTypeName == leafVeinsType.name}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <!-- Habitus part -->
+            <label for="habitusName">Habitus</label>
+            <select class="form-control" id="habitusName" name="habitusName">
+                <option value="">nedefinovane</option>
+                <option th:each="habitus : ${habituses}"
+                        th:value="${habitus.name}"
+                        th:text="${habitus.name}"
+                        th:selected="${treeSearchDTO.habitusName == habitus.name}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <!-- Rhytidome part -->
+            <label for="rhytidomeName">Rhytidome (borka)</label>
+            <select class="form-control" id="rhytidomeName" name="rhytidomeName">
+                <option value="">nedefinovane</option>
+                <option th:each="rhytidome : ${rhytidomes}"
+                        th:value="${rhytidome.name}"
+                        th:text="${rhytidome.name}"
+                        th:selected="${treeSearchDTO.rhytidomeName == rhytidome.name}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" >Hľadaj</button>
+    </form>
+
+    <hr>
+
+    <h3>Výsledky hľadania:</h3>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>vedecký názov</th>
+            <th>slovenský názov</th>
+            <th>čeľaď</th>
+            <th>prim. habitus</th>
+            <th>sek. habitus</th>
+            <th>prim. rhytidome</th>
+            <th>sek. rhytidome</th>
+            <th>tvar listu</th>
+            <th>typ žilnatiny</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${allTrees.isEmpty()}">
+            <td colspan="2"> No trees avaliable in database</td>
+        </tr>
+        <tr th:each="tree : ${allTrees}">
+            <td><a th:href="@{/tree/{treeName}(treeName=${#strings.replace(#strings.replace(tree.latinName, ' ', '-'), '_', '-').toLowerCase()})}"
+                   th:text="${tree.latinName}" class="link-underline-opacity-0 text-nowrap">Latin name</a></td>
+            <td><span th:text="${tree.slovakName}"> Slovak name </span></td>
+            <td><span th:text="${tree.familyName}"> Family </span></td>
+            <td><span th:text="${tree.primaryHabitusName}"> Primary habitus </span></td>
+            <td><span th:text="${tree.secondaryHabitusName}"> Secondary habitus </span></td>
+            <td><span th:text="${tree.primaryRhytidomeName}">Primary rhytidome</span></td>
+            <td><span th:text="${tree.secondaryRhytidomeName}">Secondary rhytidome</span></td>
+            <td><span th:text="${tree.leafBladeShapeName}"> Leaf balde shape </span></td>
+            <td><span th:text="${tree.leafVeinsTypeName}"> Leaf veins type </span></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+</body>
+</html>

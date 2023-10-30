@@ -10,17 +10,22 @@ import java.util.Collection;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class RhytidomeModel extends TreeProperty {
 
-    @OneToMany(mappedBy = "rhytidome")
-    private Collection<TreeModel> trees;
+    // list of trees which have THIS rhytidome setted as primary
+    @OneToMany(mappedBy = "primaryRhytidome")
+    private Collection<TreeModel> treesWithAsPrimary;
+
+    // list of trees which have THIS rhytidome setted as secondary
+    @OneToMany(mappedBy = "secondaryRhytidome")
+    private Collection<TreeModel> treesWithAsSecondary;
 
     public RhytidomeModel() {
     }
 
-    public Collection<TreeModel> getTrees() {
-        return trees;
+    public Collection<TreeModel> getTreesWithAsPrimary() {
+        return treesWithAsPrimary;
     }
 
-    public void setTrees(Collection<TreeModel> trees) {
-        this.trees = trees;
+    public void setTreesWithAsPrimary(Collection<TreeModel> treesWithAsPrimary) {
+        this.treesWithAsPrimary = treesWithAsPrimary;
     }
 }

@@ -19,6 +19,9 @@ public abstract class UniversalCategoryNode extends TreeProperty {
     // level of this category node
     int level;
 
+    //prefix for level
+    String prefix;
+
     // if null then THIS is root node
     @ManyToOne
     @JoinColumn(name = "parent_name")
@@ -28,4 +31,23 @@ public abstract class UniversalCategoryNode extends TreeProperty {
     @OneToMany(mappedBy = "parentNode")
     Collection<UniversalCategoryNode> childrenNodes;
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public UniversalCategoryNode getParentNode() {
+        return parentNode;
+    }
 }

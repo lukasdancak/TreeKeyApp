@@ -10,17 +10,21 @@ import java.util.Collection;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class HabitusModel extends TreeProperty {
 
-    @OneToMany(mappedBy = "habitus")
-    private Collection<TreeModel> trees;
+    @OneToMany(mappedBy = "primaryHabitus")
+    private Collection<TreeModel> treesWithAsPrimary;
+
+    @OneToMany(mappedBy = "secondaryHabitus")
+    private Collection<TreeModel> treesWithAsSecondary;
+
 
     public HabitusModel() {
     }
 
-    public Collection<TreeModel> getTrees() {
-        return trees;
+    public Collection<TreeModel> getTreesWithAsPrimary() {
+        return treesWithAsPrimary;
     }
 
-    public void setTrees(Collection<TreeModel> trees) {
-        this.trees = trees;
+    public Collection<TreeModel> getTreesWithAsSecondary() {
+        return treesWithAsSecondary;
     }
 }
