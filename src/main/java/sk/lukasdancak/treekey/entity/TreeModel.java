@@ -49,7 +49,7 @@ public class TreeModel {
 
     //shape of leafs blade
     @ManyToOne
-    @JoinColumn(name = "leaf_blade_shapes_node_name")
+    @JoinColumn(name = "leaf_blade_shape_name")
     LeafBladeShapesNode leafBladeShapesNode;
 
     //type of veins
@@ -59,7 +59,7 @@ public class TreeModel {
 
     // is species the native in Slovakia ?
     @Column(name = "native_species", nullable = false)
-    Boolean nativeSpecies;
+    Boolean isNative;
 
 
     // to finish this later
@@ -176,11 +176,11 @@ public class TreeModel {
         this.description = description;
     }
 
-    public Boolean getNativeSpecies() {
-        return nativeSpecies;
+    public Boolean getIsNative() {
+        return isNative;
     }
 
-    public void setNativeSpecies(Boolean nativeSpecies) {
-        this.nativeSpecies = nativeSpecies;
+    public void setIsNative(Boolean isNative) {
+        this.isNative = isNative;
     }
 }

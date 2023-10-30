@@ -10,6 +10,7 @@ public class TreeSearchDTO {
     String rhytidomeName;
     String leafBladeShapeName;
     String leafVeinsTypeName;
+    Boolean isNative;
 
     public String getLatinName() {
         return latinName;
@@ -73,6 +74,14 @@ public class TreeSearchDTO {
 
     public void setLeafVeinsTypeName(String leafVeinsTypeName) {
         this.leafVeinsTypeName = leafVeinsTypeName;
+    }
+
+    public Boolean getIsNative() {
+        return isNative;
+    }
+
+    public void setIsNative(Boolean aNative) {
+        isNative = aNative;
     }
 
     @Override
