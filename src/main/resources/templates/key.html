@@ -11,36 +11,67 @@
 
 <section layout:fragment="content">
     <h2 class="media-heading">Kľúč na určovanie drevín</h2>
-    <p>Zadaj info o drevine, ktoré sú ti známe, do formulára.</p>
+    <p>Zadaj do formulára info o drevine, ktoré sú ti známe.</p>
+    <p class="alert alert-danger">Zatiaľ je v databáze iba vzorka dát</p>
 
     <!--    form.   -->
-    <form action="/search-tree-no-js" method="get" th:object="${treeSearchDTO}">
+    <form action="/kluc" method="get" th:object="${treeSearchDTO}">
 
-        <!--leaf shape part: -->
-        <label for="leafBladeShapeName">Tvar listu</label>
-        <select class="form-control"
-
-                id="leafBladeShapeName"
-                name="leafBladeShapeName" >
-<!-- th:field="*{leafBladeShapeName}" commented out from select tag. This "th:field" cannot be used in above select tag
-when "th:selected" is used in "option" tag. The "th:field" should be replaced by id="" and name="", the functionality is
-the same.-->
-            <option value="">nedefinovane</option>
-            <option th:each="leafShape : ${leafShapes}"
-                    th:value="${leafShape.name}"
-                    th:text="${leafShape.prefix} + ' ' + ${leafShape.name}"
-                    th:selected="${treeSearchDTO.leafBladeShapeName == leafShape.name}"></option>
-        </select>
-
-
-
+        <div class=" mb-3">
+            <!--leaf shape part: -->
+            <label for="leafBladeShapeName">Tvar listu</label>
+            <select class="form-control"
+                    id="leafBladeShapeName"
+                    name="leafBladeShapeName" >
+                <!-- th:field="*{leafBladeShapeName}" commented out from select tag. This "th:field" cannot be used in above select tag
+                when "th:selected" is used in "option" tag. The "th:field" should be replaced by id="" and name="", the functionality is
+                the same.-->
+                <option value="">nedefinovane</option>
+                <option th:each="leafShape : ${leafShapes}"
+                        th:value="${leafShape.name}"
+                        th:text="${leafShape.prefix} + ' ' + ${leafShape.name}"
+                        th:selected="${treeSearchDTO.leafBladeShapeName == leafShape.name}"></option>
+            </select>
+        </div>
 
 
 
-        <!--rhytidome part: -->
+        <div class="mb-3">
+            <!--        label + select for leaf veins type-->
+            <label for="leafVeinsTypeName">Typ žilnatiny</label>
+            <select class="form-control" id="leafVeinsTypeName" name="leafVeinsTypeName">
+                <option value="">nedefinovane</option>
+                <option th:each="leafVeinsType : ${leafVeinsTypes}"
+                        th:value="${leafVeinsType.name}"
+                        th:text="${leafVeinsType.prefix} + ' ' + ${leafVeinsType.name}"
+                        th:selected="${treeSearchDTO.leafVeinsTypeName == leafVeinsType.name}"></option>
+            </select>
+        </div>
 
-        <button type="submit">Search for tree</button>
-        
+        <div class="mb-3">
+            <!-- Habitus part -->
+            <label for="habitusName">Habitus</label>
+            <select class="form-control" id="habitusName" name="habitusName">
+                <option value="">nedefinovane</option>
+                <option th:each="habitus : ${habituses}"
+                        th:value="${habitus.name}"
+                        th:text="${habitus.name}"
+                        th:selected="${treeSearchDTO.habitusName == habitus.name}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <!-- Rhytidome part -->
+            <label for="rhytidomeName">Rhytidome (borka)</label>
+            <select class="form-control" id="rhytidomeName" name="rhytidomeName">
+                <option value="">nedefinovane</option>
+                <option th:each="rhytidome : ${rhytidomes}"
+                        th:value="${rhytidome.name}"
+                        th:text="${rhytidome.name}"
+                        th:selected="${treeSearchDTO.rhytidomeName == rhytidome.name}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" >Hľadaj</button>
     </form>
 
     <hr>
