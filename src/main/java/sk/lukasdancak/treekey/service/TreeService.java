@@ -7,7 +7,6 @@ import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.dto.TreeSearchDTO;
 import sk.lukasdancak.treekey.entity.FamilyModel;
 import sk.lukasdancak.treekey.entity.TreeModel;
-import sk.lukasdancak.treekey.repository.TreeRepositoryCustom;
 import sk.lukasdancak.treekey.repository.TreeRepository;
 
 import java.util.ArrayList;
@@ -19,9 +18,9 @@ public class TreeService {
 
     private final TreeRepository treeRepository;
     private final FamilyService familyService;
-    private final LeafBladeShapesService leafBladeShapesService;
+    private final LeafBladeShapeService leafBladeShapesService;
 
-    public TreeService(TreeRepository treeRepository, FamilyService familyService, LeafBladeShapesService leafBladeShapesService) {
+    public TreeService(TreeRepository treeRepository, FamilyService familyService, LeafBladeShapeService leafBladeShapesService) {
         this.treeRepository = treeRepository;
         this.familyService = familyService;
         this.leafBladeShapesService = leafBladeShapesService;

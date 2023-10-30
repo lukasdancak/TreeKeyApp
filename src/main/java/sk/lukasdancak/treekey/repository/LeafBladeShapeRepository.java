@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import sk.lukasdancak.treekey.entity.leafproperties.LeafBladeShapesNode;
 
 @Repository
-public interface LeafBladeShapesRepository extends JpaRepository<LeafBladeShapesNode, String> {
+public interface LeafBladeShapeRepository extends JpaRepository<LeafBladeShapesNode, String> {
 }

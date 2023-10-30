@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import sk.lukasdancak.treekey.customexception.BadRequestCustom;
 import sk.lukasdancak.treekey.dto.TreeDTO;
 import sk.lukasdancak.treekey.entity.TreeModel;
-import sk.lukasdancak.treekey.mapper.TreeMapper;
+import sk.lukasdancak.treekey.mapper.myTreeMapper;
 import sk.lukasdancak.treekey.service.TreeService;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.List;
 public class TreeRestController {
 
     private final TreeService treeService;
-    private final TreeMapper treeMapper = new TreeMapper();
+    private final myTreeMapper treeMapper = new myTreeMapper();
 
     public TreeRestController(TreeService treeService) {
         this.treeService = treeService;
