@@ -5,14 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import sk.lukasdancak.treekey.dto.LeafBladeShapeDTO;
-import sk.lukasdancak.treekey.dto.TreeDTO;
-import sk.lukasdancak.treekey.dto.TreeSearchDTO;
+import sk.lukasdancak.treekey.dto.*;
 import sk.lukasdancak.treekey.entity.TreeModel;
-import sk.lukasdancak.treekey.mapper.LeafBladeShapeMapper;
-import sk.lukasdancak.treekey.mapper.TreeMapper;
-import sk.lukasdancak.treekey.service.LeafBladeShapesService;
-import sk.lukasdancak.treekey.service.TreeService;
+import sk.lukasdancak.treekey.mapper.myTreeMapper;
+import sk.lukasdancak.treekey.service.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,13 +17,22 @@ import java.util.stream.Collectors;
 public class BasicController {
 
     private final TreeService treeService;
-    private final LeafBladeShapesService leafBladeShapesService;
-    private TreeMapper treeMapper = new TreeMapper();
-    private LeafBladeShapeMapper leafBladeShapeMapper = new LeafBladeShapeMapper();
+    private final LeafBladeShapeService leafBladeShapesService;
+    private final LeafVeinsTypeService leafVeinsTypeService;
+    private final HabitusService habitusService;
+    private final RhytidomeService rhytidomeService;
+    private final myTreeMapper myTreeMapper;
 
-    public BasicController(TreeService treeService, LeafBladeShapesService leafShapesService) {
+
+    public BasicController(TreeService treeService, LeafBladeShapeService leafShapesService, LeafVeinsTypeService leafVeinsTypeService, HabitusService habitusService, RhytidomeService rhytidomeService) {
         this.treeService = treeService;
         this.leafBladeShapesService = leafShapesService;
+        this.leafVeinsTypeService = leafVeinsTypeService;
+        this.habitusService = habitusService;
+        this.rhytidomeService = rhytidomeService;
+
+        this.myTreeMapper = new myTreeMapper();
+
     }
 
     // Binder. Empty String from form is setted to String object as NULL
@@ -50,15 +55,41 @@ public class BasicController {
         System.out.println(treeSearchDTO.toString());
         System.out.println("Is leafBladeShape NULL ?:");
         System.out.println(treeSearchDTO.getLeafBladeShapeName()==null);
+        System.out.println("pred treeService.searchTrees(treeSearchDTO); ");
+
         List<TreeModel> allTreesEntity = treeService.searchTrees(treeSearchDTO);
-        List<TreeDTO> allTreesDTO = allTreesEntity.stream().map(t->treeMapper.toDTO(t)).collect(Collectors.toList());
+
+        System.out.println("po treeService.searchTrees(treeSearchDTO); ");
+
+        List<TreeDTO> allTreesDTO = allTreesEntity.stream().map(t-> myTreeMapper.toDTO(t)).collect(Collectors.toList());
+
+
+
         List<LeafBladeShapeDTO> leafShapesDTO = leafBladeShapesService.getAll()
                                                                       .stream()
-                                                                      .map(l->leafBladeShapeMapper.toDTO(l))
+                                                                      .map(l-> myTreeMapper.toDTO(l))
                                                                       .collect(Collectors.toList());
+        //get list of all leaf veins type nodes converted to theirs DTOs
+        List<LeafVeinsTypeDTO> leafVeinsTypesDTO = leafVeinsTypeService.getAll()
+                                                                       .stream()
+                                                                       .map(l->myTreeMapper.toDTO(l))
+                                                                       .collect(Collectors.toList());
+        List<HabitusDTO> habituseDTOs = habitusService.getAll()
+                        .stream()
+                                .map(l->myTreeMapper.toDTO(l))
+                                        .collect(Collectors.toList());
+
+        List<RhytidomeDTO> rhytidomeDTOs = rhytidomeService.getAll()
+                        .stream()
+                                .map(l->myTreeMapper.toDTO(l))
+                                        .collect(Collectors.toList());
+
         model.addAttribute("allTrees", allTreesDTO);
         model.addAttribute("treeSearchDTO", treeSearchDTO);
         model.addAttribute("leafShapes", leafShapesDTO);
+        model.addAttribute("leafVeinsTypes", leafVeinsTypesDTO);
+        model.addAttribute("habituses", habituseDTOs);
+        model.addAttribute("rhytidomes", rhytidomeDTOs);
         return "key";
     }
 
@@ -66,7 +97,7 @@ public class BasicController {
     public String treePage( Model model, @PathVariable String treeName ) {
 
         TreeModel tree = treeService.getTreeByNameInKebabCaseIgnoreCase(treeName);
-        TreeDTO treeDTO = treeMapper.toDTO(tree);
+        TreeDTO treeDTO = myTreeMapper.toDTO(tree);
         System.out.println(treeDTO.toString() );
 
         model.addAttribute("tree", treeDTO);
