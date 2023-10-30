@@ -76,19 +76,19 @@ VALUES (1, 'zlozene', null, '1'),
        (4, 'dlanovito-dielny', 'dielne', '2.2.3.2');
 
 
-INSERT INTO leaf_veins_types_nodes(level, name, parent_name)
-VALUES (1, 'nahosemennych – otvorena', null),
-            (2, 's-jednou-zilou', 'nahosemennych – otvorena'),
-            (2, 's-dvomi-zilami', 'nahosemennych – otvorena'),
-            (2, 'vejarovita', 'nahosemennych – otvorena'),
+INSERT INTO leaf_veins_types_nodes(level, name, parent_name, prefix)
+VALUES (1, 'nahosemennych – otvorena', null, '1'),
+            (2, 's-jednou-zilou', 'nahosemennych – otvorena', '1.1'),
+            (2, 's-dvomi-zilami', 'nahosemennych – otvorena', '1.2'),
+            (2, 'vejarovita', 'nahosemennych – otvorena', '1.3'),
 
-       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null),
-            (2, 'perovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena'),
-            (2, 'dlanovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena');
+       (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null, '2'),
+            (2, 'perovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena', '2.1'),
+            (2, 'dlanovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena', '2.2');
 
 
 -- trees data
-INSERT INTO trees(id, description, latin_name, native_species, slovak_name, family_name,  leaf_blade_shapes_node_name,
+INSERT INTO trees(id, description, latin_name, native_species, slovak_name, family_name,  leaf_blade_shape_name,
                   leaf_veins_type_name, primary_habitus_name, secondary_habitus_name, primary_rhytidome_name,  secondary_rhytidome_name )
 VALUES (1, 'popis popis 1', 'Picea abies', true, 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)','nahosemennych – otvorena', 'strom',  'N/A', 'smrekovy', 'N/A'),
        (2, 'popis xyz', 'Fagus sylvatica', TRUE, 'buk lesný', 'Fagaceae', 'elipsovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
