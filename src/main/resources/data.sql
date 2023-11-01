@@ -90,16 +90,30 @@ VALUES (1, 'nahosemennych – otvorena', null, '1'),
 -- trees data
 INSERT INTO trees(id, description, latin_name, native_species, slovak_name, family_name,  leaf_blade_shape_name,
                   leaf_veins_type_name, primary_habitus_name, secondary_habitus_name, primary_rhytidome_name,  secondary_rhytidome_name )
-VALUES (1, 'popis popis 1', 'Picea abies', true, 'smrek obyčajný', 'Pinaceae',  'ciarkovity (ihlicovity)','nahosemennych – otvorena', 'strom',  'N/A', 'smrekovy', 'N/A'),
-       (2, 'popis xyz', 'Fagus sylvatica', TRUE, 'buk lesný', 'Fagaceae', 'elipsovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
-
-       (4, 'popis xyz', 'Salix alba', TRUE, 'vŕba biela', 'Salicaceae', 'kopijovity', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
-       (5, 'popis xyz', 'Carpinus betulus', TRUE, 'hrab obyčajný', 'Corylaceae', 'vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
-       (6, 'popis xyz', 'Populus nigra', TRUE, 'topoľ čierny', 'Salicaceae', 'deltoidicky', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
-       (7, 'popis xyz', 'Tilia platyphyllos', TRUE, 'lipa veľkolistá', 'Tiliaceae', 'srdcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
-       (8, 'popis xyz', 'Alnus glutinosa', TRUE, 'jelša lepkavá', 'Betulaceae', 'obrateno-vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
-       (9, 'popis xyz', 'Populus tremula', TRUE, 'topoľ osikový', 'Salicaceae', 'okruhlasty', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
-       (10, 'popis xyz', 'Corylus avellana ', TRUE, 'lieska obyčajná', 'Corylaceae', 'okruhlasty', 'perovita', 'ker', 'strom', 'bukovy', 'smrekovy' );
+VALUES (38, 'popis xyz', 'Picea abies', TRUE, 'smrek obyčajný', 'Pinaceae', 'ciarkovity (ihlicovity)', 's-jednou-zilou', 'strom', 'N/A', 'smrekovy', 'N/A' ),
+       (8, 'popis xyz', 'Fagus sylvatica', TRUE, 'buk lesný', 'Fagaceae', 'elipsovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (44, 'popis xyz', 'Salix alba', TRUE, 'vŕba biela', 'Salicaceae', 'kopijovity', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (20, 'popis xyz', 'Carpinus betulus', TRUE, 'hrab obyčajný', 'Corylaceae', 'vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (41, 'popis xyz', 'Populus nigra', TRUE, 'topoľ čierny', 'Salicaceae', 'deltoidicky', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (37, 'popis xyz', 'Tilia platyphyllos', TRUE, 'lipa veľkolistá', 'Tiliaceae', 'srdcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (34, 'popis xyz', 'Alnus glutinosa', TRUE, 'jelša lepkavá', 'Betulaceae', 'obrateno-vajcovity', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (42, 'popis xyz', 'Populus tremula', TRUE, 'topoľ osikový', 'Salicaceae', 'okruhlasty', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (65, 'popis xyz', 'Corylus avellana', TRUE, 'lieska obyčajná', 'Corylaceae', 'okruhlasty', 'perovita', 'ker', 'strom', 'bukovy', 'smrekovy' ),
+       (3, 'popis xyz', 'Ulmus glabra', TRUE, 'brest horsky', 'Ulmaceae', 'nesumerny', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (18, 'popis xyz', 'Quercus petraea', TRUE, 'dub zimný', 'Fagaceae', 'perovito-lalocnaty', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (31, 'popis xyz', 'Acer platanoides', TRUE, 'javor mliečny', 'Aceraceae', 'dlanovito-lalocnaty', 'dlanovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (68, 'popis xyz', 'Viburnum opulus', FALSE, 'kalina obyčajná', 'Adoxaceae', 'dlanovito-lalocnaty', 'dlanovita', 'ker', 'N/A', 'bukovy', 'N/A' ),
+       (14, 'popis xyz', 'Quercus robur', TRUE, 'dub letný', 'Fagaceae', 'perovito-zarezovy', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (30, 'popis xyz', 'Acer pseudoplatanus', TRUE, 'javor horský', 'Aceraceae', 'dlanovito-zarezovy', 'dlanovita', 'strom', 'N/A', 'platanovy', 'N/A' ),
+       (57, 'popis xyz', 'Crataegus monogyna', TRUE, 'hloh jednosemenný', 'Rosaceae', 'perovito-dielny', 'perovita', 'ker', 'strom', 'bukovy', 'platanovy' ),
+       (12, 'popis xyz', 'Quercus cerris', TRUE, 'dub cerový', 'Fagaceae', 'perovito-dielny', 'perovita', 'strom', 'N/A', 'dubovy', 'N/A' ),
+       (69, 'popis xyz', 'Acer palmatum', FALSE, 'javor dlaňolistý', 'Sapindaceae', 'dlanovito-dielny', 'dlanovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (27, 'popis xyz', 'Sorbus aucuparia', TRUE, 'jarabina vtáčia', 'Rosaceae', 'neparno-perovito-zlozeny', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (70, 'popis xyz', 'Robinia pseudoacacia', FALSE, 'agát biely', 'Fabaceae', 'neparno-perovito-zlozeny', 'perovita', 'strom', 'N/A', 'bukovy', 'dubovy' ),
+       (71, 'popis xyz', 'Caragana arborescens', FALSE, 'karagana stromovitá', 'Fabaceae', 'parno-perovito-zlozeny', 'perovita', 'ker', 'strom', 'brezovy', 'N/A' ),
+       (72, 'popis xyz', 'Laburnum anagyroides', FALSE, 'štedrec ovisnutý', 'Fabaceae', 'trojpocetny', 'perovita', 'ker', 'strom', 'bukovy', 'N/A' ),
+       (73, 'popis xyz', 'Aesculus x carnea', FALSE, 'pagaštan pleťový', 'Sapindaceae', 'patpocetny', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
+       (74, 'popis xyz', 'Aesculus hippostanum', FALSE, 'pagaštan konský', 'Sapindaceae', 'sedempocetny', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' );
 
 
 
