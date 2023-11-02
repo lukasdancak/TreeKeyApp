@@ -87,7 +87,7 @@ VALUES (1, 'nahosemennych – otvorena', null, '1'),
             (2, 'dlanovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena', '2.2');
 
 
--- trees data
+-- trees data - sample data
 INSERT INTO trees(id, description, latin_name, native_species, slovak_name, family_name,  leaf_blade_shape_name,
                   leaf_veins_type_name, primary_habitus_name, secondary_habitus_name, primary_rhytidome_name,  secondary_rhytidome_name )
 VALUES (38, 'popis xyz', 'Picea abies', TRUE, 'smrek obyčajný', 'Pinaceae', 'ciarkovity (ihlicovity)', 's-jednou-zilou', 'strom', 'N/A', 'smrekovy', 'N/A' ),
