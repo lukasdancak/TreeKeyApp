@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Decode primary key
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          fileName: 'private.key'
+          encodedString: ${{ secrets.PRIMARY_KEY }}
+          directoryPath: '/src/main/resources'
+
+      - name: Decode certificate file
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          fileName: 'certificate.crt'
+          encodedString: ${{ secrets.CERTIFICATE_FILE }}
+          directoryPath: '/src/main/resources'
