@@ -49,6 +49,11 @@ public class BasicController {
         return "home";
     }
 
+    @RequestMapping("/ostranke")
+    public String aboutPage(){
+        return "aboutpage";
+    }
+
 
     @RequestMapping(value = "/kluc", method = {RequestMethod.GET, RequestMethod.POST })
     public String postSearchTreeNoJS(@ModelAttribute("treeSearchDTO") TreeSearchDTO treeSearchDTO, Model model) {
