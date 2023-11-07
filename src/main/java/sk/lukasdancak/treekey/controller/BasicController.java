@@ -51,7 +51,12 @@ public class BasicController {
 
     @RequestMapping("/ostranke")
     public String aboutPage(){
-        return "aboutpage";
+        return "about";
+    }
+
+    @RequestMapping("/kontakt")
+    public String contactPage(){
+        return "contact";
     }
 
 
