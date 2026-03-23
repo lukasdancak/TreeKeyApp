@@ -21,7 +21,6 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=dev
       - DB_URL=jdbc:postgresql://db:5432/my_db_name
-      - DB_DRIVER_CLASS_NAME=org.postgresql.Driver
       - DB_USERNAME=mydb_user
       - DB_PASSWORD=password
     ports:
