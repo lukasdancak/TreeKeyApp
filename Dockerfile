@@ -14,7 +14,7 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # Use OpenJDK 17 as the base image for the final stage
-FROM openjdk:17-jdk-slim-buster
+FROM eclipse-temurin:17-jre-alpine
 
 # Set the working directory in the container
 WORKDIR /app
