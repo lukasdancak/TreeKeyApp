@@ -29,8 +29,8 @@ services:
       - treekeyapp-network
 
 volumes:
-  postgres_data:
+  postgres_data_treekeyapp:
 
 networks:
-  treekey-app-network:
+  treekeyapp-network:
     driver: bridge
