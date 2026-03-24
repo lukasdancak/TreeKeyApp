@@ -2,6 +2,7 @@
 env.properties
 data/passwords.mv.db
 /data
+.output.txt
 
 
 ### From SPring

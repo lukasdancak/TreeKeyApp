@@ -1,0 +1,33 @@
+# Ignore the build output
+target/
+
+# Ignore version control metadata
+.git/
+.gitignore
+
+# Ignore IDE specific files and folders
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+.sts4-cache
+
+# Ignore local output or log files
+*.log
+.output.txt
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
+
+# Ignore Docker related files that aren't needed in the image
+Dockerfile
+docker-compose.dev.yml
+
+# Ignore temporary/environment files
+env.properties
