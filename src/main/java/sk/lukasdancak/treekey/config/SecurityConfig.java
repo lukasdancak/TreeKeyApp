@@ -49,6 +49,7 @@ public class SecurityConfig {
             GoogleLoginSuccessHandler successHandler) throws Exception {
         http.authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/account", "/account/**").authenticated()
+                        .requestMatchers("/tree/*/comments").authenticated()
                         .anyRequest().permitAll())
                 .oauth2Login(oauth2 -> oauth2.successHandler(successHandler));
         return http.build();

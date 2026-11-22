@@ -35,48 +35,46 @@
                         <p th:text="${tree.description}" class="fs-5 mb-4">static: description of tree</p>
                     </section>
                 </article>
-                <!-- Comments section-->
-<!--                <section class="mb-5">-->
-<!--                    <div class="card bg-light">-->
-<!--                        <div class="card-body">-->
-<!--                            &lt;!&ndash; Comment form&ndash;&gt;-->
-<!--                            <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>-->
-<!--                            &lt;!&ndash; Comment with nested comments&ndash;&gt;-->
-<!--                            <div class="d-flex mb-4">-->
-<!--                                &lt;!&ndash; Parent comment&ndash;&gt;-->
-<!--                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>-->
-<!--                                <div class="ms-3">-->
-<!--                                    <div class="fw-bold">Commenter Name</div>-->
-<!--                                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.-->
-<!--                                    &lt;!&ndash; Child comment 1&ndash;&gt;-->
-<!--                                    <div class="d-flex mt-4">-->
-<!--                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>-->
-<!--                                        <div class="ms-3">-->
-<!--                                            <div class="fw-bold">Commenter Name</div>-->
-<!--                                            And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    &lt;!&ndash; Child comment 2&ndash;&gt;-->
-<!--                                    <div class="d-flex mt-4">-->
-<!--                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>-->
-<!--                                        <div class="ms-3">-->
-<!--                                            <div class="fw-bold">Commenter Name</div>-->
-<!--                                            When you put money directly to a problem, it makes a good headline.-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            &lt;!&ndash; Single comment&ndash;&gt;-->
-<!--                            <div class="d-flex">-->
-<!--                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>-->
-<!--                                <div class="ms-3">-->
-<!--                                    <div class="fw-bold">Commenter Name</div>-->
-<!--                                    When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </section>-->
+                <section class="mb-5" id="comments">
+                    <h2 class="fw-bolder mb-4 mt-5">Comments</h2>
+                    <div th:if="${commentError}" class="alert alert-danger" role="alert" th:text="${commentError}"></div>
+                    <div th:if="${commentPosted}" class="alert alert-success" role="status">Your comment was posted.</div>
+                    <form th:if="${currentGoogleUser != null}"
+                          th:action="@{/tree/{treeName}/comments(treeName=${treeName})}"
+                          th:object="${commentForm}"
+                          method="post"
+                          class="mb-4">
+                        <label for="comment-content" class="form-label">Add a comment</label>
+                        <textarea id="comment-content"
+                                  class="form-control mb-2"
+                                  th:field="*{content}"
+                                  rows="4"
+                                  maxlength="2000"
+                                  required></textarea>
+                        <button type="submit" class="btn btn-primary">Post comment</button>
+                    </form>
+                    <p th:if="${currentGoogleUser == null}">
+                        <a href="/oauth2/authorization/google">Sign in with Google</a> to leave a comment.
+                    </p>
+                    <p th:if="${#lists.isEmpty(comments)}" class="text-muted">No comments yet.</p>
+                    <article th:each="comment : ${comments}" class="card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-2">
+                                <img th:if="${comment.author.pictureUrl != null}"
+                                     th:src="${comment.author.pictureUrl}"
+                                     th:alt="${comment.author.displayName != null ? comment.author.displayName : 'Profile picture'}"
+                                     class="rounded-circle me-2"
+                                     width="36"
+                                     height="36"/>
+                                <strong th:text="${comment.author.displayName != null ? comment.author.displayName : 'Google user'}">Author</strong>
+                                <time class="text-muted small ms-2"
+                                      th:datetime="${comment.createdAt}"
+                                      th:text="${comment.createdAt}">Date</time>
+                            </div>
+                            <p class="mb-0" style="white-space: pre-wrap" th:text="${comment.content}">Comment</p>
+                        </div>
+                    </article>
+                </section>
             </div>
             <!-- Side widgets-->
             <div class="col-lg-4">
