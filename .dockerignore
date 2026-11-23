@@ -1,0 +1,12 @@
+.git/
+.idea/
+.vscode/
+target/
+build/
+data/
+env.properties
+google-oauth.properties
+.env
+.env.*
+*.iml
+*.log
