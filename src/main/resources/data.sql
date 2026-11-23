@@ -18,13 +18,15 @@ VALUES ('Pinaceae', 'Lorem ipsum'),
        ( 'Adoxaceae', 'Lorem ipsum' ),
        ( 'Rosaceae', 'Lorem ipsum' ),
        ( 'Sapindaceae', 'Lorem ipsum' ),
-       ( 'Fabaceae', 'Lorem ipsum' );
+       ( 'Fabaceae', 'Lorem ipsum' )
+ON CONFLICT DO NOTHING;
 
 INSERT INTO habituses(name, description)
 VALUES ('strom', 'kmen+koruna'),
        ('ker', 'rozkonareny od bazy'),
        ('liana', 'popinava drevina'),
-       ('N/A', 'nestanovene, nevyskytuje sa sekundarny typ');
+       ('N/A', 'nestanovene, nevyskytuje sa sekundarny typ')
+ON CONFLICT DO NOTHING;
 
 
 INSERT INTO rhytidomes(name, description)
@@ -34,7 +36,8 @@ VALUES ('smrekovy', 'malé jemné šupiny'),
        ('brezovy',
         'v dôsledku druhotného hrubnutia kmeňa sa borka napína a následne puká a prstencovite (priečne) sa odlupuje v tenkých plátoch'),
        ('platanovy', ' borka, ktorá sa postupne odlupuje v rôzne veľkých plátoch'),
-       ('N/A', 'nestanovene, nevyskytuje sa sekundarny typ');
+       ('N/A', 'nestanovene, nevyskytuje sa sekundarny typ')
+ON CONFLICT DO NOTHING;
 
 INSERT INTO leaf_blade_shapes_nodes(level, name, parent_name, prefix)
 VALUES (1, 'zlozene', null, '1'),
@@ -73,7 +76,8 @@ VALUES (1, 'zlozene', null, '1'),
 
        (3, 'dielne', 'delene', '2.2.3'),
        (4, 'perovito-dielny', 'dielne', '2.2.3.1'),
-       (4, 'dlanovito-dielny', 'dielne', '2.2.3.2');
+       (4, 'dlanovito-dielny', 'dielne', '2.2.3.2')
+ON CONFLICT DO NOTHING;
 
 
 INSERT INTO leaf_veins_types_nodes(level, name, parent_name, prefix)
@@ -84,7 +88,8 @@ VALUES (1, 'nahosemennych – otvorena', null, '1'),
 
        (1, 'krytosemennych (dvojklicnolistovych) – uzatvorena', null, '2'),
             (2, 'perovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena', '2.1'),
-            (2, 'dlanovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena', '2.2');
+            (2, 'dlanovita', 'krytosemennych (dvojklicnolistovych) – uzatvorena', '2.2')
+ON CONFLICT DO NOTHING;
 
 
 -- trees data - sample data
@@ -113,7 +118,7 @@ VALUES (38, 'popis xyz', 'Picea abies', TRUE, 'smrek obyčajný', 'Pinaceae', 'c
        (71, 'popis xyz', 'Caragana arborescens', FALSE, 'karagana stromovitá', 'Fabaceae', 'parno-perovito-zlozeny', 'perovita', 'ker', 'strom', 'brezovy', 'N/A' ),
        (72, 'popis xyz', 'Laburnum anagyroides', FALSE, 'štedrec ovisnutý', 'Fabaceae', 'trojpocetny', 'perovita', 'ker', 'strom', 'bukovy', 'N/A' ),
        (73, 'popis xyz', 'Aesculus x carnea', FALSE, 'pagaštan pleťový', 'Sapindaceae', 'patpocetny', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' ),
-       (74, 'popis xyz', 'Aesculus hippostanum', FALSE, 'pagaštan konský', 'Sapindaceae', 'sedempocetny', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' );
-
+       (74, 'popis xyz', 'Aesculus hippostanum', FALSE, 'pagaštan konský', 'Sapindaceae', 'sedempocetny', 'perovita', 'strom', 'N/A', 'bukovy', 'N/A' )
+ON CONFLICT DO NOTHING;
 
 

@@ -34,6 +34,25 @@
                     <li class="nav-item"><a class="nav-link" href="/kluc">Kľúč na určovanie drevín</a></li>
                     <li class="nav-item"><a class="nav-link" href="/kontakt">Kontakt</a></li>
                     <li class="nav-item"><a class="nav-link" href="/swagger-ui/index.html" target="_blank">API info</a></li>
+                    <li class="nav-item" th:if="${googleLoginEnabled and currentGoogleUser == null}">
+                        <a class="nav-link" href="/oauth2/authorization/google">Sign in with Google</a>
+                    </li>
+                    <li class="nav-item" th:if="${currentGoogleUser != null}">
+                        <a class="nav-link" href="/account">
+                            <img th:if="${currentGoogleUser.picture != null}"
+                                 th:src="${currentGoogleUser.picture}"
+                                 alt=""
+                                 class="rounded-circle me-1"
+                                 width="24"
+                                 height="24"/>
+                            <span th:text="${currentGoogleUser.fullName}">Account</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${currentGoogleUser != null}">
+                        <form th:action="@{/logout}" method="post">
+                            <button class="nav-link btn btn-link" type="submit">Sign out</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>

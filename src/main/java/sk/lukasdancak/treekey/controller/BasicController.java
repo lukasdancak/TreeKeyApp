@@ -1,15 +1,20 @@
 package sk.lukasdancak.treekey.controller;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sk.lukasdancak.treekey.dto.*;
 import sk.lukasdancak.treekey.entity.TreeModel;
 import sk.lukasdancak.treekey.mapper.myTreeMapper;
 import sk.lukasdancak.treekey.service.*;
 
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,15 +26,17 @@ public class BasicController {
     private final LeafVeinsTypeService leafVeinsTypeService;
     private final HabitusService habitusService;
     private final RhytidomeService rhytidomeService;
+    private final TreeCommentService treeCommentService;
     private final myTreeMapper myTreeMapper;
 
 
-    public BasicController(TreeService treeService, LeafBladeShapeService leafShapesService, LeafVeinsTypeService leafVeinsTypeService, HabitusService habitusService, RhytidomeService rhytidomeService) {
+    public BasicController(TreeService treeService, LeafBladeShapeService leafShapesService, LeafVeinsTypeService leafVeinsTypeService, HabitusService habitusService, RhytidomeService rhytidomeService, TreeCommentService treeCommentService) {
         this.treeService = treeService;
         this.leafBladeShapesService = leafShapesService;
         this.leafVeinsTypeService = leafVeinsTypeService;
         this.habitusService = habitusService;
         this.rhytidomeService = rhytidomeService;
+        this.treeCommentService = treeCommentService;
 
         this.myTreeMapper = new myTreeMapper();
 
@@ -104,19 +111,40 @@ public class BasicController {
     }
 
     @RequestMapping(value="/tree/{treeName}")
-    public String treePage( Model model, @PathVariable String treeName ) {
+    public String treePage(Model model, @PathVariable String treeName) {
 
         TreeModel tree = treeService.getTreeByNameInKebabCaseIgnoreCase(treeName);
         TreeDTO treeDTO = myTreeMapper.toDTO(tree);
         System.out.println(treeDTO.toString() );
 
         model.addAttribute("tree", treeDTO);
-
-
+        model.addAttribute("treeName", treeName);
+        model.addAttribute("comments", treeCommentService.getCommentsForTree(tree.getId()));
+        model.addAttribute("commentForm", new TreeCommentForm());
 
         return "tree";
     }
 
-
+    @PostMapping("/tree/{treeName}/comments")
+    public String addTreeComment(
+            @PathVariable String treeName,
+            @Valid @ModelAttribute("commentForm") TreeCommentForm commentForm,
+            BindingResult bindingResult,
+            @AuthenticationPrincipal OidcUser googleUser,
+            RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+                String errorMessage = bindingResult.getFieldErrors("content").stream()
+                        .map(error -> error.getDefaultMessage())
+                        .filter(java.util.Objects::nonNull)
+                        .findFirst()
+                        .orElse("Comment is invalid.");
+                redirectAttributes.addFlashAttribute("commentError", errorMessage);
+        } else {
+            TreeModel tree = treeService.getTreeByNameInKebabCaseIgnoreCase(treeName);
+            treeCommentService.addComment(tree.getId(), googleUser.getSubject(), commentForm.getContent());
+            redirectAttributes.addFlashAttribute("commentPosted", true);
+        }
+        return "redirect:/tree/" + treeName;
+    }
 
 }

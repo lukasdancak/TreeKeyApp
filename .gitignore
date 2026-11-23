@@ -1,5 +1,6 @@
 ### My
 /env.properties
+/google-oauth.properties
 data/passwords.mv.db
 /data
 
